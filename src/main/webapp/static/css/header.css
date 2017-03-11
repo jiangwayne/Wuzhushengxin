@@ -1,0 +1,48 @@
+#logo-container {
+    float: left;
+    height: 130px;
+    position: relative;
+}
+.tb {
+    display: table;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.tb-cell {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    height: 100%;
+}
+.logo-text{
+    line-height: 100px;
+    text-shadow: 5px 5px 5px #bcbec0;
+    vertical-align: middle;
+    color: #9e558f;
+    font-size: 150%
+}
+#menu-container {
+    height: 130px;
+    display: block!important;
+    float: right;
+    font-family: Alike,sans-serif;
+    color: #292929;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+#menu-container nav>ul>li>a{
+    display: block;
+    padding: 0 11px;
+    height: 130px;
+    line-height: 140px;
+}
+#menu-container nav>ul>li {
+    float: left;
+    position: relative;
+}
+#menu-container nav>ul>li>a:after {
+    content: "/";
+    margin-left: 18px;
+    color: #292929!important;
+}

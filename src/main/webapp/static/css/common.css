@@ -1,0 +1,6 @@
+.clearfix{
+    clear:both;
+}
+ol,ul {
+    list-style: none;
+}
