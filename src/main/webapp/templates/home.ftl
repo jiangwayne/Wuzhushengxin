@@ -25,7 +25,7 @@
                         <div class="tb">
                             <div class="tb-cell">
                                 <div class="logo-text">
-                                    <i>WZXS</i>
+                                    <i>W&nbsp;Z&nbsp;S&nbsp;X</i>
                                 </div>
                             </div>
                         </div>
@@ -33,34 +33,23 @@
                     <div id="menu-container">
                         <nav>
                             <ul class="clearfix">
+                                <li class="current-menu-item">
+                                    <a href="/home" class="arrow">首页</a>
+                                </li>
                                 <li>
-                                    <a href="/home" class="arrow">Home</a>
+                                    <a href="" class="arrow">关于</a>
                                 </li>
-                                <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#" class="arrow">Headers</a>
-                                    <ul class="sub-menu" style="display: none; opacity: 1;">
-                                        <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/header_style2.html">Header Style 2</a></li>
-                                        <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/header_style3.html">Header Style 3</a></li>
-                                    </ul>
+                                <li style="position: static;"><a href="" class="arrow">数学</a>
                                 </li>
-                                <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#" class="arrow">Posts</a>
+                                <li><a href="" class="arrow">算法</a>
                                     <ul class="sub-menu" style="display: none; opacity: 1;">
-                                        <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/single.html">Standard</a></li>
-                                        <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/single_slideshow.html">Slideshow</a></li>
-                                        <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/single_quote.html">Quote</a></li>
-                                        <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/single_link.html">Link</a></li>
-                                        <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/single_video.html">Video</a></li>
-                                        <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/single_audio.html">Audio</a></li>
-                                    </ul>
-                                </li>
-                                <li class="current-menu-item"><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#" class="arrow">Category</a>
-                                    <ul class="sub-menu" style="display: none; opacity: 1;">
-                                        <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_travel.html">Travel</a></li>
+                                        <li><a href="">Travel</a></li>
                                         <li class="current-menu-item"><a href="./House - Lifestyle Category_files/House - Lifestyle Category.html">Lifestyle</a></li>
                                         <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_video.html">Video</a></li>
                                         <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_music.html">Music</a></li>
                                     </ul>
                                 </li>
-                                <li style="position: static;"><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#" class="arrow">Mega Menu</a>
+                                <li><a href="" class="arrow">java</a>
                                     <ul class="ubermenu-submenu" style="display: none; opacity: 1;">
                                         <li>
                                             <ul class="ubermenu-tabs-group">
@@ -148,8 +137,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/about.html">About Me</a></li>
-                                <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/contact.html">Contact</a></li>
+                                <li><a href="">工具</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -165,24 +153,21 @@
             <div class="row">
                 <div class="col-lg-8 col-sm-8 column">
                     <header id="header-section">
-                        <h3>Lifestyle</h3>
+                        <h3>算法</h3>
                         <div></div>
                         <span>category</span>
                     </header>
                     <article class="post">
                         <header>
-                            <div class="media">
-                                <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/single.html"><img src="./House - Lifestyle Category_files/4(2).jpg" alt=""></a>
-                            </div>
-                            <h3><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/single.html">My journey into the unknown.</a></h3>
-                            <span>December 22, 2014 / by <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#">studio-themes</a> / in: <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#">Lifestyle</a> / <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#">4 Comments</a></span>
+                            <h3><a href="">算法是什么</a></h3>
+                            <span>2017-03-12 / 阅读(10)</span>
                         </header>
                         <div class="editor-styles">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget turpis pulvinar, tempor odio sed, adipiscing dolor. Donec nisi velit, malesuada id dolor non, elementum auctor arcu. Cras consectetur sapien et purus posuere.</p>
                         </div>
                         <footer>
                             <div>
-                                <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/single.html">Continue Reading...</a>
+                                <a href="">阅读全文...</a>
                             </div>
                             <hr>
                         </footer>
@@ -254,8 +239,9 @@
                             </div>
                         </div>
                         <div class="widget">
-                            <h4>About</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget turpis pulvinar, tempor odio sed, adipiscing dolor.</p>
+                            <h4>关于</h4>
+                            <p>网名:WZSX</p>
+                            <p>职业:程序猿</p>
                         </div>
                         <div class="widget">
                             <h4>Find me on</h4>

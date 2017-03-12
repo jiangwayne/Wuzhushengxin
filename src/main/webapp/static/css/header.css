@@ -25,7 +25,8 @@
 #menu-container {
     height: 130px;
     display: block!important;
-    float: right;
+    float: left;
+    margin-left: 100px;
     font-family: Alike,sans-serif;
     color: #292929;
     font-size: 14px;
