@@ -38,6 +38,10 @@
     height: 130px;
     line-height: 140px;
 }
+#menu-container nav>ul>li>a:hover{
+    text-decoration: none;
+    color:#ff9b9b;
+}
 #menu-container nav>ul>li {
     float: left;
     position: relative;

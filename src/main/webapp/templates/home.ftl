@@ -19,7 +19,7 @@
     <div id="home-sticky-wrapper" class="sticky-wrapper" style="height: 130px;">
         <header id="home" class="sticky">
             <div class="container">
-            <div class="row">
+                <div class="row">
                 <div class="col-md-12 clearfix">
                     <div id="logo-container">
                         <div class="tb">
@@ -35,9 +35,6 @@
                             <ul class="clearfix">
                                 <li class="current-menu-item">
                                     <a href="/home" class="arrow">首页</a>
-                                </li>
-                                <li>
-                                    <a href="" class="arrow">关于</a>
                                 </li>
                                 <li style="position: static;"><a href="" class="arrow">数学</a>
                                 </li>
@@ -143,10 +140,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
         </header>
     </div>
     <section id="section-featured" class="clearfix">
+        <div class="container">本站建设中...</div>
     </section>
     <section id="page">
         <div class="container">
@@ -242,18 +240,14 @@
                             <h4>关于</h4>
                             <p>网名:WZSX</p>
                             <p>职业:程序猿</p>
+                            <p>本站:个人博客,学习笔记</p>
                         </div>
                         <div class="widget">
-                            <h4>Find me on</h4>
-                            <p>
-                                <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#" class="social-1"><i class="fa fa-facebook"></i></a>
-                                <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#" class="social-1"><i class="fa fa-twitter"></i></a>
-                                <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#" class="social-1"><i class="fa fa-google-plus"></i></a>
-                                <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#" class="social-1"><i class="fa fa-linkedin"></i></a>
-                            </p>
+                            <h4>联系</h4>
+                            <p>邮箱:jwl_126@163.com</p>
                         </div>
                         <div class="widget">
-                            <h4>Latest Posts</h4>
+                            <h4>最新评论</h4>
                             <ul>
                                 <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#">My journey into the unkown.</a></li>
                                 <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#">Top 10 restaurant in California.</a></li>
@@ -262,7 +256,7 @@
                             </ul>
                         </div>
                         <div class="widget">
-                            <h4>Categories</h4>
+                            <h4>归档</h4>
                             <ul>
                                 <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_travel.html">Travel</a> (4)</li>
                                 <li><a href="./House - Lifestyle Category_files/House - Lifestyle Category.html">Lifestyle</a> (3)</li>
@@ -271,7 +265,7 @@
                             </ul>
                         </div>
                         <div class="widget tagcloud">
-                            <h4>Tags</h4>
+                            <h4>标签</h4>
                             <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#">travel</a>
                             <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#">blog</a>
                             <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#">lifestyle</a>
