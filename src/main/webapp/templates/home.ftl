@@ -36,7 +36,15 @@
                                 <li class="current-menu-item">
                                     <a href="/home" class="arrow">首页</a>
                                 </li>
-                                <li style="position: static;"><a href="" class="arrow">数学</a>
+                                <li class="">
+                                    <a href="/home" class="arrow">关于</a>
+                                </li>
+                                <li><a href="" class="arrow">数学</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="">数学分析</a></li>
+                                        <li ><a href="">高等代数</a></li>
+                                        <li><a href="">离散数学</a></li>
+                                    </ul>
                                 </li>
                                 <li><a href="" class="arrow">算法</a>
                                     <ul class="sub-menu" style="display: none; opacity: 1;">
@@ -46,7 +54,7 @@
                                         <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_music.html">Music</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="" class="arrow">java</a>
+                                <li><a href="" class="arrow">编程</a>
                                     <ul class="ubermenu-submenu" style="display: none; opacity: 1;">
                                         <li>
                                             <ul class="ubermenu-tabs-group">
@@ -144,7 +152,7 @@
         </header>
     </div>
     <section id="section-featured" class="clearfix">
-        <div class="container">本站建设中...</div>
+        <div style="text-align: center;line-height: 50px; height:50px; background-color: #ffb8fc" class="container">本站建设中...</div>
     </section>
     <section id="page">
         <div class="container">
@@ -256,7 +264,7 @@
                             </ul>
                         </div>
                         <div class="widget">
-                            <h4>归档</h4>
+                            <h4>热门</h4>
                             <ul>
                                 <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_travel.html">Travel</a> (4)</li>
                                 <li><a href="./House - Lifestyle Category_files/House - Lifestyle Category.html">Lifestyle</a> (3)</li>
@@ -265,17 +273,13 @@
                             </ul>
                         </div>
                         <div class="widget tagcloud">
-                            <h4>标签</h4>
-                            <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#">travel</a>
-                            <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#">blog</a>
-                            <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#">lifestyle</a>
-                            <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#">feature</a>
-                            <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#">mountain</a>
-                            <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#">design</a>
-                            <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#">restaurant</a>
-                            <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#">journey</a>
-                            <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#">classic</a>
-                            <a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#">sunset</a>
+                            <h4>友情链接</h4>
+                            <ul>
+                                <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_travel.html">Travel</a> (4)</li>
+                                <li><a href="./House - Lifestyle Category_files/House - Lifestyle Category.html">Lifestyle</a> (3)</li>
+                                <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_video.html">Video</a> (1)</li>
+                                <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_music.html">Music</a> (5)</li>
+                            </ul>
                         </div>
                     </aside>
                 </div>
