@@ -1,3 +1,13 @@
+DROP TABLE IF EXISTS `t_category`;
+CREATE TABLE `t_category` (
+  `id` bigint(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(16) NOT NULL COMMENT '名称',
+  `status` int(2) DEFAULT 1 COMMENT '状态(1:有效数据)',
+  `gmt_create` datetime DEFAULT NULL COMMENT '创建时间',
+  `gmt_modify` datetime DEFAULT NULL COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC
+
 DROP TABLE IF EXISTS `t_article`;
 CREATE TABLE `t_article` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
@@ -24,3 +34,4 @@ CREATE TABLE `t_comment` (
   `gmt_modify` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC
+
