@@ -5,8 +5,8 @@
     <title>About</title>
 
     <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
+    <meta name="description" content="个人博客,学习笔记,知识分享">
+    <meta name="keywords" content="关于我">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
