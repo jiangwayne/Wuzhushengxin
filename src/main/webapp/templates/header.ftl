@@ -11,7 +11,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div id="menu-container">
                     <nav>
                         <ul class="clearfix">
