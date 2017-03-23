@@ -16,7 +16,7 @@
 </head>
 <body>
 <div id="page-container">
-<#assign page="home">
+<#assign page="${page}">
 <#include "header.ftl">
     <section id="section-featured" class="clearfix">
         <div style="text-align: center;line-height: 50px; height:50px; background-color: #ffb8fc" class="container">本站建设中...</div>

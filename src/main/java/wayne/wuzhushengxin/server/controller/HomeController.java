@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by jiangwulin on 2017/3/11.
@@ -16,10 +18,33 @@ import javax.servlet.http.HttpServletResponse;
 public class HomeController extends BaseController {
     private static final Logger log = LoggerFactory.getLogger(HomeController.class);
 
+    //网站主页
     @RequestMapping(value = "home",method = RequestMethod.GET)
     public void homePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String htmlPath = "static/html/home.html";
-        createStaticHtml("home.ftl", request, htmlPath);
+        Map<String, String> dataMap = new HashMap<>();
+        dataMap.put("page","home");
+        createStaticHtml("home.ftl", request, htmlPath, dataMap);
+        response.sendRedirect(htmlPath);
+    }
+
+    //数学主页
+    @RequestMapping(value = "math",method = RequestMethod.GET)
+    public void mathHomePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String htmlPath = "static/html/articles/mathematics/home.html";
+        Map<String, String> dataMap = new HashMap<>();
+        dataMap.put("page","math");
+        createStaticHtml("home.ftl", request, htmlPath, dataMap);
+        response.sendRedirect(htmlPath);
+    }
+
+    //数学分析主页
+    @RequestMapping(value = "mathAnalysis",method = RequestMethod.GET)
+    public void mathAnalysisHomePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String htmlPath = "static/html/articles/mathematics/mathematicsAnalysis/home.html";
+        Map<String, String> dataMap = new HashMap<>();
+        dataMap.put("page","mathAnalysis");
+        createStaticHtml("home.ftl", request, htmlPath, dataMap);
         response.sendRedirect(htmlPath);
     }
 }

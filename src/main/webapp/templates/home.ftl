@@ -9,14 +9,14 @@
     <meta name="keywords" content="数学，算法，编程">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="../css/common.css" type="text/css">
-    <link rel="stylesheet" href="../css/header.css" type="text/css">
-    <script src="../js/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/common.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/header.css" type="text/css">
+    <script src="/static/js/jquery-3.1.1.min.js"></script>
 </head>
 <body>
 <div id="page-container">
-    <#assign page="home">
+    <#assign page="${page}">
     <#include "header.ftl">
     <section id="section-featured" class="clearfix">
         <div style="text-align: center;line-height: 50px; height:50px; background-color: #ffb8fc" class="container">本站建设中...</div>
