@@ -2,6 +2,9 @@ body {
     letter-spacing: 1px;
     color: #787878;
 }
+.article-body p{
+    text-indent: 2em; //首行缩进2个字
+}
 h1, h2, h3, h4, h5, h6 {
     margin-bottom: 20px;
     font-weight: 700;

@@ -18,28 +18,22 @@
     <div class="widget">
         <h4>最新评论</h4>
         <ul>
-            <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#">My journey into the unkown.</a></li>
-            <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#">Top 10 restaurant in California.</a></li>
-            <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#">Sunset of summer.</a></li>
-            <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_lifestyle.html#">Hike in mountains.</a></li>
+            <li><a href="">测试</a></li>
+            <li><a href="">测试</a></li>
         </ul>
     </div>
     <div class="widget">
         <h4>热门</h4>
         <ul>
-            <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_travel.html">Travel</a> (4)</li>
-            <li><a href="./House - Lifestyle Category_files/House - Lifestyle Category.html">Lifestyle</a> (3)</li>
-            <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_video.html">Video</a> (1)</li>
-            <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_music.html">Music</a> (5)</li>
+            <li><a href="">测试</a>(15)</li>
+            <li><a href="">测试</a>(10)</li>
         </ul>
     </div>
     <div class="widget tagcloud">
         <h4>友情链接</h4>
         <ul>
-            <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_travel.html">Travel</a> (4)</li>
-            <li><a href="./House - Lifestyle Category_files/House - Lifestyle Category.html">Lifestyle</a> (3)</li>
-            <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_video.html">Video</a> (1)</li>
-            <li><a href="http://view.jqueryfuns.com/%E9%A2%84%E8%A7%88-/2015/1/14/706c9c78623f129a044220c0ad3c2013/category_music.html">Music</a> (5)</li>
+            <li><a href="">测试</a></li>
+            <li><a href="">测试</a></li>
         </ul>
     </div>
 </aside>

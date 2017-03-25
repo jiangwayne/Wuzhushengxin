@@ -47,4 +47,14 @@ public class HomeController extends BaseController {
         createStaticHtml("home.ftl", request, htmlPath, dataMap);
         response.sendRedirect(htmlPath);
     }
+
+    //小故事主页
+    @RequestMapping(value = "conte",method = RequestMethod.GET)
+    public void conteHomePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String htmlPath = "/static/html/articles/conte/home.html";
+        Map<String, String> dataMap = new HashMap<>();
+        dataMap.put("page","conte");
+        createStaticHtml("home.ftl", request, htmlPath, dataMap);
+        response.sendRedirect(htmlPath);
+    }
 }

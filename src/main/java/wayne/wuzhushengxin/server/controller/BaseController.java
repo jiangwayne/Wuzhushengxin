@@ -26,6 +26,7 @@ public class BaseController {
             if(!file.getParentFile().exists()){
                 file.getParentFile().mkdirs();
             }
+            //文件的最后更新时间与内容的最后更新时间比较,是否需要重新生成静态html
 //            if(pageMap.containsKey(filePath) && file.exists()){
 //                return;
 //            }

@@ -49,7 +49,7 @@
                                 <a href="">随笔</a>
                             </li>
                             <li <#if  page=="conte" >class="current-menu-item"</#if>>
-                                <a href="">小故事</a>
+                                <a href="/conte">小故事</a>
                             </li>
                         </ul>
                     </nav>

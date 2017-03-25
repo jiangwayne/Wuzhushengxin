@@ -13,6 +13,12 @@
     <link rel="stylesheet" href="/static/css/common.css" type="text/css">
     <link rel="stylesheet" href="/static/css/header.css" type="text/css">
     <script src="/static/js/jquery-3.1.1.min.js"></script>
+    <#if "${page}"=="math">
+        <script type="text/javascript" async
+                src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
+        <#--<script src="http://cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>-->
+    </#if>
 </head>
 <body>
 <div id="page-container">
@@ -25,11 +31,11 @@
                 <div class="col-lg-8 col-sm-8 column">
                     <article class="post clearfix">
                         <header>
-                            <h3>My journey into the unknown</h3>
-                            <span>December 22, 2014 / <a href="#">4 Comments</a></span>
+                            <h3>${article.title}</h3>
+                            <span>${article.gmtCreate} / <a href="#">评论(${article.comments})</a></span>
                         </header>
-                        <#include "${articlePath}.ftl">
-                        <#--<#include "articles/mathematics/mathematicalAnalysis/math10001.ftl">-->
+                        <#include "${article.url}.ftl">
+                        <#--<#include "articles/mathematics/mathematicalAnalysis/math11001.ftl">-->
                         <footer>
                             <div>
                                 <#--<a href="#" class="social-1"><i class="fa fa-facebook"></i></a>-->
@@ -38,7 +44,6 @@
                                 <#--<a href="#" class="social-1"><i class="fa fa-pinterest"></i></a>-->
                                 <#--<a href="#" class="social-1"><i class="fa fa-tumblr"></i></a>-->
                             </div>
-                            <hr>
                         </footer>
                     </article>
                     <nav id="post-nav-2" class="clearfix">

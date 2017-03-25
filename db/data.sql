@@ -17,6 +17,7 @@ CREATE TABLE `t_article` (
   `views` int(10) DEFAULT 0 COMMENT '阅读数',
   `comments` int(10) DEFAULT 0 COMMENT '评论数',
   `category_id` int(10) DEFAULT 0 COMMENT '分类id',
+  `no` varchar(16) NOT NULL COMMENT '编号',
   `status` int(2) DEFAULT 1 COMMENT '状态(1:有效数据)',
   `gmt_create` datetime DEFAULT NULL COMMENT '创建时间',
   `gmt_modify` datetime DEFAULT NULL COMMENT '修改时间',
