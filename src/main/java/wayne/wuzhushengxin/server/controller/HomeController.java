@@ -21,7 +21,7 @@ public class HomeController extends BaseController {
     //网站主页
     @RequestMapping(value = "home",method = RequestMethod.GET)
     public void homePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        String htmlPath = "static/html/home.html";
+        String htmlPath = "/static/html/home.html";
         Map<String, String> dataMap = new HashMap<>();
         dataMap.put("page","home");
         createStaticHtml("home.ftl", request, htmlPath, dataMap);
@@ -31,7 +31,7 @@ public class HomeController extends BaseController {
     //数学主页
     @RequestMapping(value = "math",method = RequestMethod.GET)
     public void mathHomePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        String htmlPath = "static/html/articles/mathematics/home.html";
+        String htmlPath = "/static/html/articles/mathematics/home.html";
         Map<String, String> dataMap = new HashMap<>();
         dataMap.put("page","math");
         createStaticHtml("home.ftl", request, htmlPath, dataMap);
@@ -39,11 +39,11 @@ public class HomeController extends BaseController {
     }
 
     //数学分析主页
-    @RequestMapping(value = "mathAnalysis",method = RequestMethod.GET)
+    @RequestMapping(value = "math/mathAnalysis",method = RequestMethod.GET)
     public void mathAnalysisHomePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        String htmlPath = "static/html/articles/mathematics/mathematicsAnalysis/home.html";
+        String htmlPath = "/static/html/articles/mathematics/mathematicsAnalysis/home.html";
         Map<String, String> dataMap = new HashMap<>();
-        dataMap.put("page","mathAnalysis");
+        dataMap.put("page","math");
         createStaticHtml("home.ftl", request, htmlPath, dataMap);
         response.sendRedirect(htmlPath);
     }

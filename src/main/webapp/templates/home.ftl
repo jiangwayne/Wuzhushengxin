@@ -18,21 +18,18 @@
 <div id="page-container">
     <#assign page="${page}">
     <#include "header.ftl">
-    <section id="section-featured" class="clearfix">
-        <div style="text-align: center;line-height: 50px; height:50px; background-color: #ffb8fc" class="container">本站建设中...</div>
-    </section>
     <section id="page">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-sm-8 column">
                     <header id="header-section">
-                        <h3>算法</h3>
+                        <h3>数学</h3>
                         <div></div>
-                        <span>category</span>
+                        <span>数学分析</span>
                     </header>
                     <article class="post">
                         <header>
-                            <h3><a href="">算法是什么</a></h3>
+                            <h3><a href="/article?id=10001">实数</a></h3>
                             <span>2017-03-12 / 阅读(10)</span>
                         </header>
                         <div class="editor-styles">
@@ -40,7 +37,7 @@
                         </div>
                         <footer>
                             <div>
-                                <a href="">阅读全文...</a>
+                                <a href="/article?id=10001">阅读全文...</a>
                             </div>
                             <hr>
                         </footer>

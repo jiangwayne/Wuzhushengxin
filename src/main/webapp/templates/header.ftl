@@ -20,10 +20,10 @@
                             <li <#if  page=="about" >class="current-menu-item"</#if>>
                                 <a href="/about">关于</a>
                             </li>
-                            <li <#if  page=="math"||page=="mathAnalysis" >class="current-menu-item"</#if>>
+                            <li <#if  page=="math" >class="current-menu-item"</#if>>
                                 <a href="/math">数学</a>
                                 <ul class="sub-menu">
-                                    <li><a href="/mathAnalysis">数学分析</a></li>
+                                    <li><a href="/math/mathAnalysis">数学分析</a></li>
                                     <li ><a href="">高等代数</a></li>
                                     <li><a href="">离散数学</a></li>
                                 </ul>
@@ -58,3 +58,6 @@
         </div>
     </div>
 </header>
+<section id="section-featured" class="clearfix">
+    <div style="text-align: center;line-height: 50px; height:50px; background-color: #ffb8fc" class="container">本站建设中...</div>
+</section>
