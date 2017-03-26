@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="basicData">
+    <select id="selectCurrentDbTime" resultType="java.util.Date">
+        select now();
+    </select>
+
+    <select id="loadAdCreative" resultType="com.admai.data.model.entity.AdCreativeEntity" parameterType="java.util.Date">
+        select id, `name`,c_type,click_url,height,width,play_time,is_backup,click_event,`desc`,template_id
+        from t_ad_creative where status=1 and last_update_time &gt;=#{current};
+    </select>
+    <select id="loadCreativeMaterial" resultType="com.admai.data.model.entity.CreativeMaterialEntity" parameterType="java.util.Date">
+        select creative_id,material_id
+        from t_ad_creative2material where status=1 and last_update_time &gt;=#{current};
+    </select>
+    <select id="loadAdFrequency" resultType="com.admai.data.model.entity.AdFrequencyEntity" parameterType="java.util.Date">
+        select source_type,source_id,frequency_type,frequency_value
+        from t_ad_frequency where status=1 and last_update_time &gt;=#{current};
+    </select>
+    <select id="loadAdMaterial" resultType="com.admai.data.model.entity.AdMaterialEntity" parameterType="java.util.Date">
+        select id,m_type,url,height,width,`name`
+        from t_ad_material where status=1 and last_update_time &gt;=#{current};
+    </select>
+    <select id="loadAdPlan" resultType="com.admai.data.model.entity.AdPlanEntity" parameterType="java.util.Date">
+        select id,advertiser_id, budget,start_date,end_date,cat
+        from t_ad_plan where status=1 and last_update_time &gt;=#{current};
+    </select>
+    <select id="loadAdRule" resultType="com.admai.data.model.entity.AdRuleEntity" parameterType="java.util.Date">
+        select source_type,source_id,rule_type,rule_value
+        from t_ad_rule where status=1 and last_update_time &gt;=#{current};
+    </select>
+    <select id="loadAdScheme" resultType="com.admai.data.model.entity.AdSchemeEntity" parameterType="java.util.Date">
+        select id,`name`,plan_id,start_date,end_date,daily_budget,bid_price,cost_type,ad_bid_price,auction_type,speed_type,terminal_type,priority
+        from t_ad_scheme where status=1 and last_update_time &gt;=#{current};
+    </select>
+    <select id="loadSchemeCreative" resultType="com.admai.data.model.entity.SchemeCreativeEntity" parameterType="java.util.Date">
+        select scheme_id,creative_id,tpm_show_url,tpm_click_url,track_code
+        from t_ad_scheme2creative where status=1 and last_update_time &gt;=#{current};
+    </select>
+    <select id="loadAdSlot" resultType="com.admai.data.model.entity.AdSlotEntity" parameterType="java.util.Date">
+        select id,target_floor,`type`,height,width,traffic_type,source_slot_id,site_id,style,effect_id,`count`,ext_code,dsp_complement,is_show_home,source_choose_type
+        from t_ad_slot where status=1 and last_update_time &gt;=#{current};
+    </select>
+    <select id="loadGeoCity" resultType="com.admai.data.model.entity.GeoCityEntity" parameterType="java.util.Date">
+        select id,`name`,province_id
+        from t_ad_geo_city where status=1 and last_update_time &gt;=#{current};
+    </select>
+    <select id="loadGeoNation" resultType="com.admai.data.model.entity.GeoNationEntity" parameterType="java.util.Date">
+        select id,`name`
+        from t_ad_geo_nation where status=1 and last_update_time &gt;=#{current};
+    </select>
+    <select id="loadGeoProvince" resultType="com.admai.data.model.entity.GeoProvinceEntity" parameterType="java.util.Date">
+        select id,`name`,nation_id,region_id
+        from t_ad_geo_province where status=1 and last_update_time &gt;=#{current};
+    </select>
+    <select id="loadAdPub" resultType="com.admai.data.model.entity.AdPubEntity" parameterType="java.util.Date">
+        select id
+        from t_ad_pub where status=1 and last_update_time &gt;=#{current};
+    </select>
+    <select id="loadAdSite" resultType="com.admai.data.model.entity.AdSiteEntity" parameterType="java.util.Date">
+        select id,pub_id
+        from t_ad_site where status=1 and last_update_time &gt;=#{current};
+    </select>
+    <select id="loadSysConfig" resultType="com.admai.data.model.entity.SysConfigEntity" parameterType="java.util.Date">
+        select sys_key,sys_value
+        from t_sys_config where status=1 and last_update_time &gt;=#{current};
+    </select>
+    <select id="loadAdThirdDsp" resultType="com.admai.data.model.entity.AdThirdDspEntity" parameterType="java.util.Date">
+        select id,name,server_url,impl_class,cm_url,nurl,bidfloor,status,weight,ad_platform_type,ext,at,pay_mode,secret_key
+        from t_ad_third_dsp where last_update_time &gt;=#{current};
+    </select>
+    <select id="loadAdBwList" resultType="com.admai.data.model.entity.AdBwListEntity" parameterType="java.util.Date">
+        select id, list_type, category, text_value, rule_type, status
+        from t_ad_bw_list  where status=1 and last_update_time &gt;=#{current};
+    </select>
+    <select id="loadAdTrafficControl" resultType="com.admai.data.model.entity.AdTrafficControlEntity" parameterType="java.util.Date">
+        select id, traffic_type_id, target_type, target_id, start_time, end_time, traffic_rule, traffic_value, status
+        from t_ad_traffic_control  where status=1 and last_update_time &gt;=#{current};
+    </select>
+    <select id="loadAdMediaCategory" resultType="com.admai.data.model.entity.AdMediaCategoryEntity" parameterType="java.util.Date">
+        select id, parent_id, name, level, price, status
+        from t_ad_media_category  where status=1 and last_update_time &gt;=#{current};
+    </select>
+
+    <select id="loadOldAdPub" resultType="com.admai.data.model.entity.OldAdPubEntity" parameterType="java.util.Date">
+        select pub_id,pub_name,pub_tel,pub_linkman,pub_desc,pub_status,is_del,company_name,bank_account,opening_bank,
+        payee,payee_tel,email,source_slot_id_pc,source_slot_id_mobile
+        from t_ad_pub where update_time &gt;=#{current};
+    </select>
+    <select id="loadOldAdSite" resultType="com.admai.data.model.entity.OldAdSiteEntity" parameterType="java.util.Date">
+        select site_id,site_name,site_tel,site_linkman,site_desc,site_domain,is_del,status,primary_site,grade_two_site,
+        iframe_count,pc_blacklist_status,mobile_blacklist_status
+        from t_ad_site where update_time &gt;=#{current};
+    </select>
+    <select id="loadOldAdSlot" resultType="com.admai.data.model.entity.OldAdSlotEntity" parameterType="java.util.Date">
+        select slot_id,slot_name,pub_id,slot_target_floor,slot_type_pc,slot_type_mobile,slot_height_pc, slot_width_pc,
+        slot_height_mobile, slot_width_mobile,slot_residencetime_mobile, slot_residencetime_pc,status,source_slot_Id_mobile,
+        source_slot_Id_pc,is_del,site_id,slot_style_pc,slot_type_mobile,slot_shape_fixed_pc,slot_shape_fixed_mobile,
+        slot_shape_float_pc, slot_shape_float_mobile,slot_background_color_pc,slot_background_color_mobile,slot_border_color_pc,
+        slot_border_color_mobile, slot_font_color_pc, slot_font_color_mobile, slot_count,ext_code_pc,ext_code_mobile,
+        dsp_complement,show_home,source_choose_type,traffic_type,slot_price,pub_slot_name
+        from t_ad_slot where update_time &gt;=#{current};
+    </select>
+    <select id="loadOldAdUserBlockList" resultType="com.admai.data.model.entity.OldAdUserBlockListEntity" parameterType="java.util.Date">
+        select id,client_id,status
+        from t_ad_user_block_list where update_time &gt;=#{current};
+    </select>
+    <select id="loadOldAdIpBlockList" resultType="com.admai.data.model.entity.OldAdIpBlockListEntity" parameterType="java.util.Date">
+        select id,ip,status
+        from t_ad_ip_block_list  where update_time &gt;=#{current};
+    </select>
+    <select id="loadOldAdTactics" resultType="com.admai.data.model.entity.OldAdTacticsEntity" parameterType="java.util.Date">
+        select slot_id, slot_target_floor,ad_start_time_pc,ad_end_time_pc,ad_start_time_mobile,
+                ad_end_time_mobile,publish_everyday_pc, publish_everyday_mobile,publish_frequency_per_uv_pc,
+                publish_frequency_per_uv_mobile,publish_scheme_per_uv_pc,publish_scheme_per_uv_mobile,
+                times_per_union_pc,times_per_union_mobile,slot_time_interval_mobile,slot_time_interval_pc,
+                compensation_scheme_pc,compensation_scheme_mobile,url_whitelist_pc,url_whitelist_mobile
+        from t_ad_tactics where update_time &gt;=#{current};
+    </select>
+    <select id="loadOldAdCheatControl" resultType="com.admai.data.model.entity.OldAdCheatControlEntity" parameterType="java.util.Date">
+        select `type`,target_id,uvupperlimit,ipupperlimit,platform_type,uvtimeinterval,iptimeinterval,uvtoblacklistlimit,iptoblacklistlimit
+        from t_ad_cheat_control  where update_time &gt;=#{current};
+    </select>
+    <select id="loadOldAdBlackList" resultType="com.admai.data.model.entity.OldAdBlackListEntity" parameterType="java.util.Date">
+        select domain_name
+        from t_ad_blacklist where update_time &gt;=#{current};
+    </select>
+    <select id="loadOldAdSource" resultType="com.admai.data.model.entity.OldAdSourceEntity" parameterType="java.util.Date">
+        select max_per_uv,time_limit_uv, max_per_ip,time_limit_ip,max_pv,backup,id,source_id,source_name,is_del,status,
+                source_replace,platform_type
+        from t_ad_source where update_time &gt;=#{current};
+    </select>
+    <select id="loadOldAdSourceSlot" resultType="com.admai.data.model.entity.OldAdSourceSlotEntity" parameterType="java.util.Date">
+        select id,is_del,status, source_slot_id,source_slot_number,source_slot_name,source_id,source_slot_width,
+                source_slot_height,positon_control,menu_position,master,source_slot_code,
+                white_list,iframe_feature
+        from t_ad_source_slot where update_time &gt;=#{current};
+    </select>
+    <select id="loadOldAdSourceProportion" resultType="com.admai.data.model.entity.OldAdSourceProportionEntity" parameterType="java.util.Date">
+        select id, `type`, target_id,source_id, platform_type, proportion
+        from t_ad_source_proportion where proportion != 0 and update_time &gt;=#{current};
+    </select>
+    <select id="loadOldAdSourceReferer" resultType="com.admai.data.model.entity.OldAdSourceRefererEntity" parameterType="java.util.Date">
+        select id,source_id,referer,weight,is_del,status
+        from t_ad_source_referer where update_time &gt;=#{current};
+    </select>
+    <select id="loadOldAdDspProportion" resultType="com.admai.data.model.entity.OldAdDspProportionEntity" parameterType="java.util.Date">
+        select `type`,target_id, dsp_id,proportion, platform_type
+        from t_ad_dsp_proportion  where update_time &gt;=#{current};
+    </select>
+    <select id="loadAdPubSlot" resultType="com.admai.data.model.entity.AdPubSlotEntity" parameterType="java.util.Date">
+        select id, pub_slot_id, pub_id, app_name, app_category, app_platform, ads_type, ads_weight, ads_height, status
+        from t_ad_pub_slot  where status=1 and last_update_time &gt;=#{current};
+    </select>
+    <select id="loadAdSlot2PubSlot" resultType="com.admai.data.model.entity.AdSlot2PubSlotEntity" parameterType="java.util.Date">
+        select id, slot_id, pub_slot_id, pay_mode, price, status
+        from t_ad_slot2pubslot  where status=1 and last_update_time &gt;=#{current};
+    </select>
+    <select id="loadAdTrafficChannel" resultType="com.admai.data.model.entity.AdTrafficChannelEntity" parameterType="java.util.Date">
+        select ch.id, ch.adx_id, ch.adx_slot_id, ch.category, ch.at, ch.pay_mode, ch.server_url, ch.impl_class, ch.cm_url, ch.nurl, ch.secret_key, ch.price, ch.status,
+        axs.slot_id, axs.price, axs.media, axs.publisher_id, axs.app_id, axs.token, axs.format
+        from t_ad_traffic_channel as ch left join t_adx_slot axs on ch.adx_slot_id=axs.id
+        where ch.status=1 and (ch.last_update_time &gt;=#{current} or axs.last_update_time &gt;=#{current});
+    </select>
+
+    <select id="loadCreativeTemplate" resultType="com.admai.data.model.entity.CreativeTemplateEntity" parameterType="java.util.Date">
+        select id,name,content,skin,layout_count
+        from t_creative_template where status=1 and last_update_time &gt;=#{current};
+    </select>
+    <select id="loadCreativeTemplateValue" resultType="com.admai.data.model.entity.CreativeTemplateValueEntity" parameterType="java.util.Date">
+        select id,creative_id,template_id,element_name,element_type,element_value
+        from t_creative_template_value where status=1 and last_update_time &gt;=#{current};
+    </select>
+
+
+    <select id="unloadAdCreative" resultType="com.admai.data.model.entity.AdCreativeEntity" parameterType="java.util.Date">
+        select id,c_type,click_url,height,width,is_backup
+        from t_ad_creative where last_update_time &gt;=#{current};
+    </select>
+    <select id="unloadCreativeMaterial" resultType="com.admai.data.model.entity.CreativeMaterialEntity" parameterType="java.util.Date">
+        select creative_id,material_id
+        from t_ad_creative2material where last_update_time &gt;=#{current};
+    </select>
+    <select id="unloadAdEffect" resultType="com.admai.data.model.entity.AdEffectEntity" parameterType="java.util.Date">
+        select id,residencetime,shape_fixed,shape_float,background_color,border_color,font_color
+        from t_ad_effect where last_update_time &gt;=#{current};
+    </select>
+    <select id="unloadAdFrequency" resultType="com.admai.data.model.entity.AdFrequencyEntity" parameterType="java.util.Date">
+        select source_type,source_id,frequency_type,frequency_value
+        from t_ad_frequency where last_update_time &gt;=#{current};
+    </select>
+    <select id="unloadAdMaterial" resultType="com.admai.data.model.entity.AdMaterialEntity" parameterType="java.util.Date">
+        select id,m_type,url,height,width
+        from t_ad_material where last_update_time &gt;=#{current};
+    </select>
+    <select id="unloadAdPlan" resultType="com.admai.data.model.entity.AdPlanEntity" parameterType="java.util.Date">
+        select id,advertiser_id, budget,start_date,end_date
+        from t_ad_plan where last_update_time &gt;=#{current};
+    </select>
+    <select id="unloadAdRule" resultType="com.admai.data.model.entity.AdRuleEntity" parameterType="java.util.Date">
+        select source_type,source_id,rule_type,rule_value
+        from t_ad_rule where last_update_time &gt;=#{current};
+    </select>
+    <select id="unloadAdScheme" resultType="com.admai.data.model.entity.AdSchemeEntity" parameterType="java.util.Date">
+        select id
+        from t_ad_scheme where last_update_time &gt;=#{current};
+    </select>
+    <select id="unloadSchemeCreative" resultType="com.admai.data.model.entity.SchemeCreativeEntity" parameterType="java.util.Date">
+        select scheme_id,creative_id
+        from t_ad_scheme2creative where last_update_time &gt;=#{current};
+    </select>
+    <select id="unloadAdSlot" resultType="com.admai.data.model.entity.AdSlotEntity" parameterType="java.util.Date">
+        select id
+        from t_ad_slot where last_update_time &gt;=#{current};
+    </select>
+    <select id="unloadGeoCity" resultType="com.admai.data.model.entity.GeoCityEntity" parameterType="java.util.Date">
+        select id,name,province_id
+        from t_ad_geo_city where last_update_time &gt;=#{current};
+    </select>
+    <select id="unloadGeoNation" resultType="com.admai.data.model.entity.GeoNationEntity" parameterType="java.util.Date">
+        select id
+        from t_ad_geo_nation where last_update_time &gt;=#{current};
+    </select>
+    <select id="unloadGeoProvince" resultType="com.admai.data.model.entity.GeoProvinceEntity" parameterType="java.util.Date">
+        select id
+        from t_ad_geo_province where last_update_time &gt;=#{current};
+    </select>
+    <select id="unloadAdPub" resultType="com.admai.data.model.entity.AdPubEntity" parameterType="java.util.Date">
+        select id
+        from t_ad_pub where last_update_time &gt;=#{current};
+    </select>
+    <select id="unloadAdSite" resultType="com.admai.data.model.entity.AdSiteEntity" parameterType="java.util.Date">
+        select id
+        from t_ad_site where last_update_time &gt;=#{current};
+    </select>
+    <select id="unloadSysConfig" resultType="com.admai.data.model.entity.SysConfigEntity" parameterType="java.util.Date">
+        select sys_key
+        from t_sys_config where last_update_time &gt;=#{current};
+    </select>
+    <select id="unloadAdThirdDsp" resultType="com.admai.data.model.entity.AdThirdDspEntity" parameterType="java.util.Date">
+        select id from t_ad_third_dsp where last_update_time &gt;=#{current};
+    </select>
+    <select id="unloadAdBwList" resultType="com.admai.data.model.entity.AdBwListEntity" parameterType="java.util.Date">
+        select id, list_type, category, text_value, rule_type, status from t_ad_bw_list where last_update_time &gt;=#{current};
+    </select>
+    <select id="unloadAdTrafficControl" resultType="com.admai.data.model.entity.AdTrafficControlEntity" parameterType="java.util.Date">
+        select id
+        from t_ad_traffic_control where last_update_time &gt;=#{current};
+    </select>
+    <select id="unloadAdMediaCategory" resultType="com.admai.data.model.entity.AdMediaCategoryEntity" parameterType="java.util.Date">
+        select id
+        from t_ad_media_category where last_update_time &gt;=#{current};
+    </select>
+    <select id="unloadAdPubSlot" resultType="com.admai.data.model.entity.AdPubSlotEntity" parameterType="java.util.Date">
+        select id
+        from t_ad_pub_slot where last_update_time &gt;=#{current};
+    </select>
+    <select id="unloadAdSlot2PubSlot" resultType="com.admai.data.model.entity.AdSlot2PubSlotEntity" parameterType="java.util.Date">
+        select id
+        from t_ad_slot2pubslot where last_update_time &gt;=#{current};
+    </select>
+
+    <select id="unloadOldAdPub" resultType="com.admai.data.model.entity.OldAdPubEntity" parameterType="java.util.Date">
+        select pub_id
+        from t_ad_pub where update_time &gt;=#{current};
+    </select>
+    <select id="unloadOldAdSite" resultType="com.admai.data.model.entity.OldAdSiteEntity" parameterType="java.util.Date">
+        select site_id
+        from t_ad_site where update_time &gt;=#{current};
+    </select>
+    <select id="unloadOldAdSlot" resultType="com.admai.data.model.entity.OldAdSlotEntity" parameterType="java.util.Date">
+        select slot_id
+        from t_ad_slot where update_time &gt;=#{current};
+    </select>
+    <select id="unloadOldAdUserBlockList" resultType="com.admai.data.model.entity.OldAdUserBlockListEntity" parameterType="java.util.Date">
+        select id
+        from t_ad_user_block_list where update_time &gt;=#{current};
+    </select>
+    <select id="unloadOldAdIpBlockList" resultType="com.admai.data.model.entity.OldAdIpBlockListEntity" parameterType="java.util.Date">
+        select id
+        from t_ad_ip_block_list where update_time &gt;=#{current};
+    </select>
+    <select id="unloadOldAdTactics" resultType="com.admai.data.model.entity.OldAdTacticsEntity" parameterType="java.util.Date">
+        select slot_id
+        from t_ad_tactics where update_time &gt;=#{current};
+    </select>
+    <select id="unloadOldAdCheatControl" resultType="com.admai.data.model.entity.OldAdCheatControlEntity" parameterType="java.util.Date">
+        select `type`,target_id,platform_type
+        from t_ad_cheat_control where update_time &gt;=#{current};
+    </select>
+    <select id="unloadOldAdBlackList" resultType="com.admai.data.model.entity.OldAdBlackListEntity" parameterType="java.util.Date">
+        select domain_name
+        from t_ad_blacklist where update_time &gt;=#{current};
+    </select>
+    <select id="unloadOldAdSource" resultType="com.admai.data.model.entity.OldAdSourceEntity" parameterType="java.util.Date">
+        select source_id
+        from t_ad_source  where update_time &gt;=#{current};
+    </select>
+    <select id="unloadOldAdSourceSlot" resultType="com.admai.data.model.entity.OldAdSourceSlotEntity" parameterType="java.util.Date">
+        select source_slot_id,source_slot_width,source_slot_height,master
+        from t_ad_source_slot where update_time &gt;=#{current};
+    </select>
+    <select id="unloadOldAdSourceProportion" resultType="com.admai.data.model.entity.OldAdSourceProportionEntity" parameterType="java.util.Date">
+        select id, `type`, target_id,source_id, platform_type, proportion
+        from t_ad_source_proportion where update_time &gt;=#{current};
+    </select>
+    <select id="unloadOldAdSourceReferer" resultType="com.admai.data.model.entity.OldAdSourceRefererEntity" parameterType="java.util.Date">
+        select source_id
+        from t_ad_source_referer where update_time &gt;=#{current};
+    </select>
+    <select id="unloadOldAdDspProportion" resultType="com.admai.data.model.entity.OldAdDspProportionEntity" parameterType="java.util.Date">
+        select `type`,target_id, dsp_id,proportion, platform_type
+        from t_ad_dsp_proportion  where update_time &gt;=#{current};
+    </select>
+
+    <select id="unloadAdTrafficChannel" resultType="com.admai.data.model.entity.AdTrafficChannelEntity" parameterType="java.util.Date">
+        select ch.id
+        from t_ad_traffic_channel as ch left join t_adx_slot axs on ch.adx_slot_id=axs.id
+        where ch.last_update_time &gt;=#{current} or axs.last_update_time &gt;=#{current};
+    </select>
+
+    <select id="unloadCreativeTemplate" resultType="com.admai.data.model.entity.CreativeTemplateEntity" parameterType="java.util.Date">
+        select id
+        from t_creative_template where last_update_time &gt;=#{current};
+    </select>
+    <select id="unloadCreativeTemplateValue" resultType="com.admai.data.model.entity.CreativeTemplateValueEntity" parameterType="java.util.Date">
+        select id,creative_id,template_id,element_name
+        from t_creative_template_value where last_update_time &gt;=#{current};
+    </select>
+</mapper>
