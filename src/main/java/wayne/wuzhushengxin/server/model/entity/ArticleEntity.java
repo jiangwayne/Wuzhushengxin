@@ -7,13 +7,12 @@ import java.util.Date;
  * Created by jw on 2017/3/15.
  */
 public class ArticleEntity {
-    private int id;
+    private Integer id;
     private String title;
-    private int views;
-    private int comments;
     private String brief;
-    private String url;
-    private int categoryId;
+    private Integer views;
+    private Integer comments;
+    private Integer categoryId;
     private LocalDate gmtCreate;
     private LocalDate gmtModify;
 
@@ -72,14 +71,6 @@ public class ArticleEntity {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
     }
 
     public int getViews() {

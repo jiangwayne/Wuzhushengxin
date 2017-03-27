@@ -32,7 +32,7 @@ public class ArticleController extends BaseController {
             entity.setTitle("实数及其性质");
             entity.setGmtCreate(LocalDate.of(2017, 3, 25));
             entity.setComments(0);
-            entity.setUrl(url);
+            //entity.setUrl(url);
         }
         if(articleoId.equals("61001")){
             dataMap.put("page","conte");
@@ -40,7 +40,7 @@ public class ArticleController extends BaseController {
             entity.setTitle("人间的实相(佛说譬喻经)");
             entity.setGmtCreate(LocalDate.of(2017, 3, 25));
             entity.setComments(0);
-            entity.setUrl(url);
+            //entity.setUrl(url);
         }
         String htmlPath = "/static/html/" + url + ".html";
         dataMap.put("article",entity);

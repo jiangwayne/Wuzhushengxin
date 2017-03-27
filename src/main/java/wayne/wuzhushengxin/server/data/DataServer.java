@@ -77,7 +77,7 @@ public class DataServer {
                 new Thread(() -> {
                     while (true) {
                         try {
-                            Thread.sleep(1000 * 60);
+                            Thread.sleep(1000 * 60 * 5);
                             DataServer.getReloadInstance().reload();
                             DataServer.changeServer();
                         } catch (Exception ex) {
