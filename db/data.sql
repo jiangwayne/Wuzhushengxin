@@ -18,6 +18,7 @@ CREATE TABLE `t_article` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `title` varchar(64) DEFAULT NULL COMMENT '标题',
   `brief` varchar(256) DEFAULT NULL COMMENT '简介',
+  `keywords` varchar(256) DEFAULT NULL COMMENT '关键字',
   `views` int(10) DEFAULT 0 COMMENT '阅读数',
   `comments` int(10) DEFAULT 0 COMMENT '评论数',
   `category_id` int(10) DEFAULT 0 COMMENT '分类id',

@@ -11,6 +11,7 @@ public class BizArticle {
     private int id;
     private String title;
     private String brief;
+    private String keywords;
     private int views;
     private int comments;
     private int categoryId;
@@ -21,6 +22,7 @@ public class BizArticle {
         this.id = entity.getId();
         this.title = entity.getTitle();
         this.brief = entity.getBrief();
+        this.keywords = entity.getKeywords();
         this.views = entity.getViews();
         this.comments = entity.getComments();
         this.categoryId = entity.getCategoryId();
@@ -58,5 +60,9 @@ public class BizArticle {
 
     public int getViews() {
         return views;
+    }
+
+    public String getKeywords() {
+        return keywords;
     }
 }

@@ -6,7 +6,7 @@
 
     <meta charset="utf-8">
     <meta name="description" content="个人博客,学习笔记,知识分享">
-    <meta name="keywords" content="数学，算法，编程">
+    <meta name="keywords" content="${article.keywords}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css">

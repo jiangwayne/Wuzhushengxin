@@ -1,6 +1,9 @@
 package wayne.wuzhushengxin.server.data;
 
 import org.springframework.web.context.ContextLoader;
+import wayne.wuzhushengxin.server.model.bizmodel.BizArticle;
+import wayne.wuzhushengxin.server.model.bizmodel.BizCategory;
+import wayne.wuzhushengxin.server.model.bizmodel.BizComment;
 
 import java.io.FileInputStream;
 import java.net.URLDecoder;
@@ -14,34 +17,32 @@ public class DataServer {
     //初始化两个server 一个提供服务 一个load/unload数据
     private static DataServer[] Servers = new DataServer[]{new DataServer(), new DataServer()};
     private static int currentServer = 0;
-    private static boolean initFlag = false;
     private static Dao dao;
     private Date lastChanged;
     private Date beforeUpgradeTime;
+
+    //key:categoryId
+    private Map<Integer, BizCategory> catetoryCollection = null;
+
+    //key:articleId
+    private Map<Integer, BizArticle> articleCollection = null;
+
+    //key:articleId
+    private Map<Integer, List<BizComment>> commentCollection = null;
+
+
+    //key:articleId
+    private static Map<Integer, Integer> articleViews = null;
 
     private DataServer() {
         if(dao == null){
             dao = ContextLoader.getCurrentWebApplicationContext().getBean(Dao.class);
         }
-
-        if(false) {
-            try {
-                String configFile = URLDecoder.decode(this.getClass().getClassLoader().getResource("config.properties").getPath(),"UTF-8");
-                Properties pro = new Properties();
-                FileInputStream in = new FileInputStream(configFile);
-                pro.load(in);
-                in.close();
-
-            } catch (Exception ex){
-
-            }
-        }
         //region 初始化数据集合
-
-
-
-
-
+        catetoryCollection = new HashMap<>();
+        articleCollection = new HashMap<>();
+        commentCollection = new HashMap<>();
+        articleViews = new HashMap<>();
         //endregion
     }
 
@@ -65,30 +66,28 @@ public class DataServer {
      */
     public static void init() {
         try {
-            if (!initFlag) {
-                Calendar calendar = Calendar.getInstance();
-                calendar.set(2016, Calendar.JANUARY, 1);
-                Date initTime = calendar.getTime();
-                //根据当前db时间加载两个Server实例
-                for (DataServer server : Servers) {
-                    server.load(initTime);
-                }
-                //新开线程 维护实例加载增量数据更新
-                new Thread(() -> {
-                    while (true) {
-                        try {
-                            Thread.sleep(1000 * 60 * 5);
-                            DataServer.getReloadInstance().reload();
-                            DataServer.changeServer();
-                        } catch (Exception ex) {
-                        }
-                    }
-                }).start();
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(2017, Calendar.JANUARY, 1);
+            Date initTime = calendar.getTime();
+            //根据当前db时间加载两个Server实例
+            for (DataServer server : Servers) {
+                server.load(initTime);
             }
-            initFlag = true;
+            //新开线程 维护实例加载增量数据更新
+            new Thread(() -> {
+                while (true) {
+                    try {
+                        Thread.sleep(1000 * 60 * 1);
+                        DataServer.getReloadInstance().reload();
+                        DataServer.changeServer();
+                    } catch (Exception ex) {
+                        System.out.println(ex);
+                    }
+                }
+            }).start();
         }
         catch(Exception ex){
-
+            System.out.println(ex);
         }
     }
 
@@ -96,8 +95,9 @@ public class DataServer {
         if(beforeUpgradeTime == null){
             beforeUpgradeTime = dao.getCurrentDbTime();
         }
-
-
+        loadCategory(currentTime);
+        loadArticle(currentTime);
+        loadComment(currentTime);
         lastChanged = beforeUpgradeTime;
     }
 
@@ -108,6 +108,39 @@ public class DataServer {
     }
 
     private void unload(Date currentTime) {
+        unloadCategory(currentTime);
+        unloadArticle(currentTime);
+        unloadComment(currentTime);
+    }
+
+    //region load
+    private void loadCategory(Date currentTime){
 
     }
+
+    private void loadArticle(Date currentTime){
+
+    }
+
+    private void loadComment(Date currentTime){
+
+    }
+    //endregion
+
+    //region unload
+    private void unloadCategory(Date currentTime){
+
+    }
+
+    private void unloadArticle(Date currentTime){
+
+    }
+
+    private void unloadComment(Date currentTime){
+
+    }
+    //endregion
+
+    //region Getters
+    //endregion
 }

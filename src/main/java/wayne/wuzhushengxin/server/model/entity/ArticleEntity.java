@@ -10,12 +10,28 @@ public class ArticleEntity {
     private Integer id;
     private String title;
     private String brief;
+    private String keywords;
     private Integer views;
     private Integer comments;
     private Integer categoryId;
     private LocalDate gmtCreate;
     private LocalDate gmtModify;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public String getBrief() {
         return brief;
@@ -25,20 +41,36 @@ public class ArticleEntity {
         this.brief = brief;
     }
 
-    public int getCategoryId() {
-        return categoryId;
+    public String getKeywords() {
+        return keywords;
     }
 
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
     }
 
-    public int getComments() {
+    public Integer getViews() {
+        return views;
+    }
+
+    public void setViews(Integer views) {
+        this.views = views;
+    }
+
+    public Integer getComments() {
         return comments;
     }
 
-    public void setComments(int comments) {
+    public void setComments(Integer comments) {
         this.comments = comments;
+    }
+
+    public Integer getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
     }
 
     public LocalDate getGmtCreate() {
@@ -55,29 +87,5 @@ public class ArticleEntity {
 
     public void setGmtModify(LocalDate gmtModify) {
         this.gmtModify = gmtModify;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public int getViews() {
-        return views;
-    }
-
-    public void setViews(int views) {
-        this.views = views;
     }
 }
