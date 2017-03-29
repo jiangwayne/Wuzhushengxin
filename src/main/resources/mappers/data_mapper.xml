@@ -6,11 +6,22 @@
         select now();
     </select>
 
-    <!--<select id="loadAdCreative" resultType="com.admai.data.model.entity.AdCreativeEntity" parameterType="java.util.Date">-->
-        <!--select id, `name`,c_type,click_url,height,width,play_time,is_backup,click_event,`desc`,template_id-->
-        <!--from t_ad_creative where status=1 and last_update_time &gt;=#{current};-->
-    <!--</select>-->
+    <select id="loadCategory" resultType="wayne.wuzhushengxin.server.model.entity.CategoryEntity" parameterType="java.util.Date">
+        select id, `name`,directory,prefix
+        from t_category where status=1 and gmt_modify &gt;=#{current};
+    </select>
+    <select id="loadArticle" resultType="wayne.wuzhushengxin.server.model.entity.ArticleEntity" parameterType="java.util.Date">
+        select id,title,brief,keywords,views,comments,category_id,gmt_create,gmt_modify
+        from t_article where status=1 and gmt_modify &gt;=#{current};
+    </select>
 
 
-
+    <select id="unloadCategory" resultType="wayne.wuzhushengxin.server.model.entity.CategoryEntity" parameterType="java.util.Date">
+        select id,
+        from t_category where gmt_modify &gt;=#{current};
+    </select>
+    <select id="unloadArticle" resultType="wayne.wuzhushengxin.server.model.entity.ArticleEntity" parameterType="java.util.Date">
+        select id
+        from t_article where gmt_modify &gt;=#{current};
+    </select>
 </mapper>

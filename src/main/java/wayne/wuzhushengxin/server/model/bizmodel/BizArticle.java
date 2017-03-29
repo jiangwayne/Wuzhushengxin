@@ -18,6 +18,9 @@ public class BizArticle {
     private LocalDate gmtCreate;
     private LocalDate gmtModify;
 
+    private String page;
+    private String url;
+
     public BizArticle(ArticleEntity entity){
         this.id = entity.getId();
         this.title = entity.getTitle();
@@ -64,5 +67,21 @@ public class BizArticle {
 
     public String getKeywords() {
         return keywords;
+    }
+
+    public String getPage() {
+        return page;
+    }
+
+    public void setPage(String page) {
+        this.page = page;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

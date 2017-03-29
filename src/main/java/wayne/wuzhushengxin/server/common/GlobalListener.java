@@ -1,7 +1,8 @@
-package wayne.wuzhushengxin.server.data;
+package wayne.wuzhushengxin.server.common;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.ContextLoader;
+import wayne.wuzhushengxin.server.data.DataServer;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;

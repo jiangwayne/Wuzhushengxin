@@ -1,9 +1,12 @@
 package wayne.wuzhushengxin.server.data;
 
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.context.ContextLoader;
 import wayne.wuzhushengxin.server.model.bizmodel.BizArticle;
 import wayne.wuzhushengxin.server.model.bizmodel.BizCategory;
 import wayne.wuzhushengxin.server.model.bizmodel.BizComment;
+import wayne.wuzhushengxin.server.model.entity.ArticleEntity;
+import wayne.wuzhushengxin.server.model.entity.CategoryEntity;
 
 import java.io.FileInputStream;
 import java.net.URLDecoder;
@@ -28,11 +31,11 @@ public class DataServer {
     private Map<Integer, BizArticle> articleCollection = null;
 
     //key:articleId
-    private Map<Integer, List<BizComment>> commentCollection = null;
+    //private Map<Integer, List<BizComment>> commentCollection = null;
 
 
     //key:articleId
-    private static Map<Integer, Integer> articleViews = null;
+    private static Map<Integer, Integer> articleViews;
 
     private DataServer() {
         if(dao == null){
@@ -41,8 +44,10 @@ public class DataServer {
         //region 初始化数据集合
         catetoryCollection = new HashMap<>();
         articleCollection = new HashMap<>();
-        commentCollection = new HashMap<>();
-        articleViews = new HashMap<>();
+        //commentCollection = new HashMap<>();
+        if(articleViews == null) {
+            articleViews = new HashMap<>();
+        }
         //endregion
     }
 
@@ -97,7 +102,7 @@ public class DataServer {
         }
         loadCategory(currentTime);
         loadArticle(currentTime);
-        loadComment(currentTime);
+        //loadComment(currentTime);
         lastChanged = beforeUpgradeTime;
     }
 
@@ -110,37 +115,63 @@ public class DataServer {
     private void unload(Date currentTime) {
         unloadCategory(currentTime);
         unloadArticle(currentTime);
-        unloadComment(currentTime);
+        //unloadComment(currentTime);
     }
 
     //region load
     private void loadCategory(Date currentTime){
-
+        List<CategoryEntity> list = dao.getList("basicData.loadCategory", currentTime);
+        for (CategoryEntity entity : list){
+            if(!catetoryCollection.containsKey(entity.getId())){
+                catetoryCollection.put(entity.getId(), new BizCategory(entity));
+            }
+        }
     }
 
     private void loadArticle(Date currentTime){
-
+        List<ArticleEntity> list = dao.getList("basicData.loadArticle", currentTime);
+        for(ArticleEntity entity : list){
+            if(!articleCollection.containsKey(entity.getId())){
+                articleCollection.put(entity.getId(), new BizArticle(entity));
+            }
+            if(!articleViews.containsKey(entity.getId())){
+                articleViews.put(entity.getId(), entity.getViews());
+            }
+        }
     }
 
-    private void loadComment(Date currentTime){
-
-    }
+//    private void loadComment(Date currentTime){
+//
+//    }
     //endregion
 
     //region unload
     private void unloadCategory(Date currentTime){
-
+        List<CategoryEntity> list = dao.getList("basicData.loadCategory", currentTime);
+        for (CategoryEntity entity : list){
+            catetoryCollection.remove(entity.getId());
+        }
     }
 
     private void unloadArticle(Date currentTime){
-
+        List<ArticleEntity> list = dao.getList("basicData.loadArticle", currentTime);
+        for(ArticleEntity entity : list){
+            articleCollection.remove(entity.getId());
+        }
     }
 
-    private void unloadComment(Date currentTime){
-
-    }
+//    private void unloadComment(Date currentTime){
+//
+//    }
     //endregion
 
     //region Getters
+    public static Map<Integer, BizCategory> categoryCollection(){
+        return getInstance().catetoryCollection;
+    }
+
+    public static Map<Integer, BizArticle> articleCollection(){
+        return getInstance().articleCollection;
+    }
     //endregion
 }
