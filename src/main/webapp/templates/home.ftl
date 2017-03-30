@@ -30,7 +30,7 @@
                     <article class="post">
                         <header>
                             <h3><a href="/article?id=11001">实数及其性质</a></h3>
-                            <span>2017-03-12 / 阅读(10)</span>
+                            <span>2017-03-12 / 阅读(0) / 评论(0)</span>
                         </header>
                         <div class="editor-styles">
                             <p>实数的定义:任何实数都可用一个确定的无限小数来表示。...</p>
