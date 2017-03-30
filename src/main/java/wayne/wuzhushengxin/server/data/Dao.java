@@ -1,5 +1,6 @@
 package wayne.wuzhushengxin.server.data;
 
+
 import org.apache.ibatis.datasource.DataSourceException;
 import org.apache.ibatis.session.SqlSession;
 

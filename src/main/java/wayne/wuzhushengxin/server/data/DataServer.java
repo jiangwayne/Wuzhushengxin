@@ -7,7 +7,8 @@ import wayne.wuzhushengxin.server.model.bizmodel.BizCategory;
 import wayne.wuzhushengxin.server.model.bizmodel.BizComment;
 import wayne.wuzhushengxin.server.model.entity.ArticleEntity;
 import wayne.wuzhushengxin.server.model.entity.CategoryEntity;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.FileInputStream;
 import java.net.URLDecoder;
 import java.time.LocalDateTime;
@@ -23,6 +24,8 @@ public class DataServer {
     private static Dao dao;
     private Date lastChanged;
     private Date beforeUpgradeTime;
+
+    private Logger logger = LoggerFactory.getLogger(DataServer.class);
 
     //key:categoryId
     private Map<Integer, BizCategory> catetoryCollection = null;
@@ -110,6 +113,7 @@ public class DataServer {
         beforeUpgradeTime = dao.getCurrentDbTime();
         unload(lastChanged);
         load(lastChanged);
+        logger.info("DataServer loaded at " + LocalDateTime.now().toString());
     }
 
     private void unload(Date currentTime) {

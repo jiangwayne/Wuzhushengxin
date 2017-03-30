@@ -52,7 +52,33 @@
     </bean>
 
     <bean id="log-filter" class="com.alibaba.druid.filter.logging.Slf4jLogFilter">
-        <property name="statementExecutableSqlLogEnable" value="true" />
+        <property name="connectionLogEnabled" value="false" />
+        <property name="connectionCloseAfterLogEnabled" value="false"/>
+        <property name="connectionCommitAfterLogEnabled" value="false"/>
+        <property name="connectionConnectAfterLogEnabled" value="false"/>
+        <property name="connectionConnectBeforeLogEnabled" value="false"/>
+        <property name="connectionRollbackAfterLogEnabled" value="false"/>
+
+        <property name="statementCloseAfterLogEnabled" value="false" />
+        <property name="statementCreateAfterLogEnabled" value="false" />
+        <property name="statementExecuteAfterLogEnabled" value="false" />
+        <property name="statementExecuteBatchAfterLogEnabled" value="false" />
+        <property name="statementExecuteQueryAfterLogEnabled" value="false" />
+        <property name="statementExecuteUpdateAfterLogEnabled" value="false" />
+        <property name="statementExecutableSqlLogEnable" value="false" />
+        <property name="statementParameterClearLogEnable" value="false" />
+        <property name="statementParameterSetLogEnabled" value="false" />
+        <property name="statementPrepareAfterLogEnabled" value="false" />
+        <property name="statementPrepareCallAfterLogEnabled" value="false" />
+        <property name="statementLogEnabled" value="false"/>
+
+        <property name="dataSourceLogEnabled" value="false"/>
+
+        <property name="resultSetLogEnabled" value="false"/>
+        <property name="resultSetCloseAfterLogEnabled" value="false" />
+        <property name="resultSetNextAfterLogEnabled" value="false" />
+        <property name="resultSetOpenAfterLogEnabled" value="false" />
+
     </bean>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
