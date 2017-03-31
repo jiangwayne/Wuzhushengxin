@@ -31,10 +31,6 @@ public class Dao {
         return list;
     }
 
-    /**
-     *
-     * @return
-     */
     public Date getCurrentDbTime() {
         Date currentDbDate = null;
         try {
@@ -47,5 +43,20 @@ public class Dao {
             //sqlSession.close();
         }
         return currentDbDate;
+    }
+
+    public int getCount(String statement, int id){
+        int count = 0;
+        try{
+            Map<String, Integer> paramMap = new HashMap<>();
+            paramMap.put("id", id);
+            count = sqlSession.selectOne(statement, id);
+        } catch (Exception ex){
+
+        }
+        finally {
+
+        }
+        return count;
     }
 }

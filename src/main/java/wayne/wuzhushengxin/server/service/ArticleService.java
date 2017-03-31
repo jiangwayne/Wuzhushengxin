@@ -22,7 +22,14 @@ public class ArticleService {
             BizCategory category = DataServer.categoryCollection().get(article.getCategoryId());
             article.setPage(category.getPrefix());
             article.setUrl(category.getDirectory() + category.getPrefix() + article.getId());
+            article.setViews(DataServer.getArticleViews(id));
         }
         return article;
     }
+
+    public synchronized void incrArticleViews(int id){
+        DataServer.addArticleViews(id);
+    }
+
+    //public int
 }

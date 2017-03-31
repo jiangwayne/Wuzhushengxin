@@ -28,18 +28,28 @@ public class ArticleController extends BaseController {
     @RequestMapping(value = "article",method = RequestMethod.GET)
     public void articlePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
         int id = Integer.parseInt(request.getParameter("id"));
-        BizArticle article = articleService.getArticle(id);
+        response.sendRedirect(refreshStaticHtml(request, id));
+    }
+    //文章刷新静态页
+    private String refreshStaticHtml(HttpServletRequest request, int articleId){
+        BizArticle article = articleService.getArticle(articleId);
         if(article == null){
-            return;
+            return "/static/html/404.html";
         }
         Map<String, Object> dataMap = new HashMap<>();
         dataMap.put("page", article.getPage());
         dataMap.put("article", article);
 
         String htmlPath = "/static/html/" + article.getUrl() + ".html";
-
         createStaticHtml("article.ftl", request, htmlPath, dataMap);
-        response.sendRedirect(htmlPath);
+        return htmlPath;
     }
 
+    //静态页阅读量统计
+    @RequestMapping(value = "article/view.htm", method = RequestMethod.GET)
+    public void articleView(HttpServletRequest request){
+        int id = Integer.parseInt(request.getParameter("id"));
+        articleService.incrArticleViews(id);
+        refreshStaticHtml(request, id);
+    }
 }

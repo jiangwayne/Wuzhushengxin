@@ -6,6 +6,10 @@
         select now();
     </select>
 
+    <select id="selectArticleCommentCount" resultType="int" parameterType="int">
+        select count(0) from t_comment WHEN status=1 and article_id=#{id};
+    </select>
+
     <select id="loadCategory" resultType="wayne.wuzhushengxin.server.model.entity.CategoryEntity" parameterType="java.util.Date">
         select id, `name`,directory,prefix
         from t_category where status=1 and gmt_modify &gt;=#{current};

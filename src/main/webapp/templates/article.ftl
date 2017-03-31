@@ -32,10 +32,10 @@
                     <article class="post clearfix">
                         <header>
                             <h3>${article.title}</h3>
-                            <span>${article.gmtCreate} / <a href="#">评论(${article.comments})</a></span>
+                            <span>${article.gmtCreate} / 阅读(${article.views}) / 评论(${article.comments})</span>
                         </header>
                         <#include "${article.url}.ftl">
-                        <#--<#include "articles/mathematics/mathematicalAnalysis/math11001.ftl">-->
+                        <script type="text/javascript" src="http://localhost:8080/article/view.htm?id=${article.id}"></script>
                         <footer>
                             <div>
                                 <#--<a href="#" class="social-1"><i class="fa fa-facebook"></i></a>-->

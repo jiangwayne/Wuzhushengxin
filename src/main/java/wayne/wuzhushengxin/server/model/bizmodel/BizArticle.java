@@ -65,6 +65,8 @@ public class BizArticle {
         return views;
     }
 
+    public void setViews(int views){ this.views = views; }
+
     public String getKeywords() {
         return keywords;
     }

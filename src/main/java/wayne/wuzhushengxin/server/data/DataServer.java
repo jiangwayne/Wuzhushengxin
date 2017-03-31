@@ -177,5 +177,21 @@ public class DataServer {
     public static Map<Integer, BizArticle> articleCollection(){
         return getInstance().articleCollection;
     }
+
+    public static int getArticleViews(int articleId){
+        if(articleViews.containsKey(articleId)){
+            return articleViews.get(articleId);
+        }
+        return 0;
+    }
+    //endregion
+
+    //region Setters
+    public static void addArticleViews(int articleId){
+        if(articleViews.containsKey(articleId)){
+            int views = articleViews.get(articleId) + 1;
+            articleViews.put(articleId, views);
+        }
+    }
     //endregion
 }
