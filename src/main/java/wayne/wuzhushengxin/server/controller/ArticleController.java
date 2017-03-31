@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import wayne.wuzhushengxin.server.data.DataServer;
 import wayne.wuzhushengxin.server.model.bizmodel.BizArticle;
 import wayne.wuzhushengxin.server.model.entity.ArticleEntity;
 import wayne.wuzhushengxin.server.service.ArticleService;
@@ -50,6 +51,8 @@ public class ArticleController extends BaseController {
     public void articleView(HttpServletRequest request){
         int id = Integer.parseInt(request.getParameter("id"));
         articleService.incrArticleViews(id);
-        refreshStaticHtml(request, id);
+        if(DataServer.getArticleViews(id)%10==0) {
+            refreshStaticHtml(request, id);
+        }
     }
 }
