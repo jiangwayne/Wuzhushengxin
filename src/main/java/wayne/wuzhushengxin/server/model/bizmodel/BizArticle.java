@@ -19,6 +19,7 @@ public class BizArticle {
     private LocalDate gmtModify;
 
     private String page;
+    private String categoryName;
     private String url;
 
     public BizArticle(ArticleEntity entity){
@@ -85,5 +86,13 @@ public class BizArticle {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 }
