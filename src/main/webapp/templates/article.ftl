@@ -56,7 +56,7 @@
                             <h6>Sunset in summer.</h6>
                         </div>
                     </nav>
-                    <#--<#include "comments.ftl">-->
+                    <#include "comments.ftl">
                 </div>
                 <div class="col-lg-4 col-sm-4 column space">
                     <#include "sidebar.ftl">

@@ -51,8 +51,8 @@ public class ArticleController extends BaseController {
     public void articleView(HttpServletRequest request){
         int id = Integer.parseInt(request.getParameter("id"));
         articleService.incrArticleViews(id);
-        if(DataServer.getArticleViews(id)%10==0) {
-            refreshStaticHtml(request, id);
-        }
+//        if(DataServer.getArticleViews(id)%10==0) {
+//            refreshStaticHtml(request, id);
+//        }
     }
 }

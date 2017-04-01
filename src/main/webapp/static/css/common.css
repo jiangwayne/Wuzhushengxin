@@ -5,12 +5,18 @@ body {
 .article-body p{
     text-indent: 2em; //首行缩进2个字
 }
+*{
+    padding: 0;
+    margin: 0;
+}
 h1, h2, h3, h4, h5, h6 {
     margin-bottom: 20px;
     font-weight: 700;
     color: #292929;
 }
-
+p {
+    margin-bottom: 15px;
+}
 #menu-container-sticky-wrapper {
     height: 130px!important;
 }
@@ -81,4 +87,93 @@ ol,ul {
 .push-right {
     text-align: right;
     float: right;
+}
+
+#comments #list-comments {
+    margin-bottom: 50px;
+}
+#comments #list-comments li {
+    position: relative;
+    margin-bottom: 30px;
+}
+#comments #list-comments li .comment-body {
+    background-color: #f1f0f0;
+    margin-left: 15px;
+    min-height: 90px;
+    padding: 25px 30px;
+}
+#comments #list-comments li .vcard {
+    margin-bottom: 15px;
+}
+#comments #list-comments li .commentmetadata {
+    font-style: italic;
+    font-size: 13px;
+}
+#comments #list-comments li .comment-body .fn {
+    color: #292929;
+    font-weight: 600;
+}
+/*#comments #list-comments li .comment-body span {*/
+    /*position: absolute;*/
+    /*left: 0;*/
+    /*top: 25px;*/
+    /*border-radius: 50%;*/
+    /*-webkit-border-radius: 50%;*/
+    /*-moz-border-radius: 50%;*/
+/*}*/
+#comments #list-comments li .comment-body:before {
+    content: "\e251";
+    color: #f1f0f0;
+    font-family: Glyphicons Halflings;
+    position: absolute;
+    top: 25px;
+    left: 0px;
+    z-index: 3;
+    font-size: 20px;
+}
+
+#comments #commentform input {
+    max-width: 280px;
+    width: 100%;
+}
+
+#comments #commentform button {
+    padding: 10px 15px;
+    cursor: pointer;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+#comments #commentform button, #comments #commentform input {
+    display: block;
+    margin-bottom: 15px;
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #e4e4e4;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    color: #787878;
+    background-color: #fff;
+}
+#comments #commentform textarea {
+    display: block;
+    margin-bottom: 15px;
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #e4e4e4;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    color: #787878;
+    background-color: #fff;
+    width:750px;
+    height:150px;
+}
+
+
+
+#foot-left p {
+    margin-top: 10px;
 }

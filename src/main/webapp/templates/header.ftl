@@ -6,7 +6,7 @@
                     <div class="tb">
                         <div class="tb-cell">
                             <div class="logo-text">
-                                <i>W&nbsp;Z&nbsp;S&nbsp;X</i>
+                                <a href="/home"><i>W&nbsp;Z&nbsp;S&nbsp;X</i></a>
                             </div>
                         </div>
                     </div>

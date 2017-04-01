@@ -48,7 +48,7 @@ public class HomeController extends BaseController {
     //数学分析主页
     @RequestMapping(value = "math/mathAnalysis",method = RequestMethod.GET)
     public void mathAnalysisHomePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        String htmlPath = "/static/html/articles/mathematics/mathematicsAnalysis/home.html";
+        String htmlPath = "/static/html/articles/mathematics/mathematicalAnalysis/home.html";
         Map<String, Object> dataMap = new HashMap<>();
         dataMap.put("page","math");
         dataMap.put("articleList",articleService.getArticleList(1100));
