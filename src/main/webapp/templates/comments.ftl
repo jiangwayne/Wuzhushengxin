@@ -1,48 +1,29 @@
 <div id="comments">
-    <h4>4 评论</h4>
-    <ul id="list-comments">
-        <li class="comment byuser even thread-even depth-1">
-            <div class="comment-body">
-                <div class="comment-author vcard">
-                    <#--<span>东方不败</span>-->
-                    <cite class="fn">John Doe</cite>
-                </div>
-                <p>Ac amet turpis diam turpis dolor aenean nunc cum natoque nec. Mattis urna in, montes et?</p>
-                <div class="comment-meta commentmetadata">
-                    <a href="#">December 22, 2014 at 11:45 pm </a>
-                </div>
-            </div>
-        </li>
-        <li class="comment byuser even thread-even depth-1">
-            <div class="comment-body">
-                <div class="comment-author vcard">
-                    <#--<span>东方不败</span>-->
-                    <cite class="fn">Chris Cilinis</cite>
-                </div>
-                <p>Phasellus quis nisi ut dolor pretium aliquet non eget ornare metus bibendum.</p>
-                <div class="comment-meta commentmetadata">
-                    <a href="#">December 22, 2014 at 11:45 pm /</a>
-                </div>
-            </div>
-        </li>
-        <li class="comment byuser even thread-even depth-1">
-            <div class="comment-body">
-                <div class="comment-author vcard">
-                    <#--<span>东方不败</span>-->
-                    <cite class="fn">Alan Smith</cite>
-                </div>
-                <p>Maecenas scelerisque nibh nec eros mattis id suscipit sem </p>
-                <div class="comment-meta commentmetadata">
-                    <a>December 23, 2014 at 8:00 am /</a>
-                </div>
-            </div>
-        </li>
-    </ul>
+    <#if commentList?size&gt;0>
+        <h4>${commentList?size} 评论</h4>
+        <ul id="list-comments">
+            <#list commentList as comment>
+                <li class="comment byuser even thread-even depth-1">
+                    <div class="comment-body">
+                        <div class="comment-author vcard">
+                            <cite class="fn">${comment.name}</cite>
+                        </div>
+                        <p>${comment.content}</p>
+                        <div class="comment-meta commentmetadata">
+                            <a href="#">${comment.gmtCreate}</a>
+                        </div>
+                </li>
+            </#list>
+        </ul>
+    <#else>
+    <h4>暂无评论</h4>
+    </#if>
     <div id="commentform">
         <h4>发表评论</h4>
-        <form method="post">
-            <input type="text" name="personal" placeholder="呢称*">
-            <textarea name="comment" placeholder="说点什么..."></textarea>
+        <form method="post" action="/article/comment">
+            <input type="hidden" name="articleId" value="${article.id}">
+            <input type="text" name="nickname" placeholder="呢称">
+            <textarea name="content" placeholder="说点什么..."></textarea>
             <button type="submit">提交</button>
         </form>
     </div>

@@ -24,7 +24,7 @@
                 <div class="col-lg-8 col-sm-8 column">
                     <#if articleList ??>
                         <#list articleList as article>
-                            <header id="header-section">
+                            <header>
                                 <h4>${article.categoryName}</h4>
                                 <div></div>
                                 <#--<span>数学分析</span>-->

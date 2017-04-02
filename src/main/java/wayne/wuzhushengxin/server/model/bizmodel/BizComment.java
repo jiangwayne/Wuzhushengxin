@@ -2,7 +2,7 @@ package wayne.wuzhushengxin.server.model.bizmodel;
 
 import wayne.wuzhushengxin.server.model.entity.CommentEntity;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * Created by jiangwulin on 2017/3/27.
@@ -10,12 +10,14 @@ import java.time.LocalDate;
 public class BizComment {
     private int id;
     private String name;
+    private String content;
     private Integer articleId;
-    private LocalDate gmtCreate;
+    private LocalDateTime gmtCreate;
 
     public BizComment(CommentEntity entity){
         this.id = entity.getId();
         this.name = entity.getName();
+        this.content = entity.getContent();
         this.articleId = entity.getArticleId();
         this.gmtCreate = entity.getGmtCreate();
     }
@@ -24,7 +26,7 @@ public class BizComment {
         return articleId;
     }
 
-    public LocalDate getGmtCreate() {
+    public LocalDateTime getGmtCreate() {
         return gmtCreate;
     }
 
@@ -35,4 +37,6 @@ public class BizComment {
     public String getName() {
         return name;
     }
+
+    public String getContent() { return content;}
 }

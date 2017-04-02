@@ -1,6 +1,7 @@
 package wayne.wuzhushengxin.server.model.entity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -14,8 +15,8 @@ public class ArticleEntity {
     private Integer views;
     private Integer comments;
     private Integer categoryId;
-    private LocalDate gmtCreate;
-    private LocalDate gmtModify;
+    private LocalDateTime gmtCreate;
+    private LocalDateTime gmtModify;
 
     public Integer getId() {
         return id;
@@ -73,19 +74,19 @@ public class ArticleEntity {
         this.categoryId = categoryId;
     }
 
-    public LocalDate getGmtCreate() {
+    public LocalDateTime getGmtCreate() {
         return gmtCreate;
     }
 
-    public void setGmtCreate(LocalDate gmtCreate) {
+    public void setGmtCreate(LocalDateTime gmtCreate) {
         this.gmtCreate = gmtCreate;
     }
 
-    public LocalDate getGmtModify() {
+    public LocalDateTime getGmtModify() {
         return gmtModify;
     }
 
-    public void setGmtModify(LocalDate gmtModify) {
+    public void setGmtModify(LocalDateTime gmtModify) {
         this.gmtModify = gmtModify;
     }
 }

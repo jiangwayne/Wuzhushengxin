@@ -6,6 +6,8 @@ import wayne.wuzhushengxin.server.data.Dao;
 import wayne.wuzhushengxin.server.data.DataServer;
 import wayne.wuzhushengxin.server.model.bizmodel.BizArticle;
 import wayne.wuzhushengxin.server.model.bizmodel.BizCategory;
+import wayne.wuzhushengxin.server.model.bizmodel.BizComment;
+import wayne.wuzhushengxin.server.model.entity.CommentEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +38,7 @@ public class ArticleService {
                 setArticle(article);
             }
         }
+
         return articles;
     }
 
@@ -45,6 +48,7 @@ public class ArticleService {
         article.setPage(category.getPrefix());
         article.setUrl(category.getDirectory() + category.getPrefix() + article.getId());
         article.setViews(DataServer.getArticleViews(article.getId()));
+
     }
 
     public BizArticle getArticle(int id){
@@ -52,6 +56,14 @@ public class ArticleService {
         if(DataServer.articleCollection().containsKey(id)){
             article = DataServer.articleCollection().get(id);
             setArticle(article);
+            int previous = article.getId() - 1;
+            int next = article.getId() + 1;
+            if(DataServer.articleCollection().containsKey(previous)){
+                article.setPrevious(DataServer.articleCollection().get(previous).getTitle());
+            }
+            if(DataServer.articleCollection().containsKey(next)){
+                article.setNext(DataServer.articleCollection().get(next).getTitle());
+            }
         }
         return article;
     }
@@ -60,5 +72,22 @@ public class ArticleService {
         DataServer.addArticleViews(id);
     }
 
+
+    public List<BizComment> getCommentList(int articleId){
+        List<BizComment> comments = new ArrayList<>();
+        List<CommentEntity> list = dao.getList("basicData.selectArticleComment", articleId);
+        for (CommentEntity entity : list) {
+            comments.add(new BizComment(entity));
+        }
+        return comments;
+    }
+
+    public void addComment(int articleId, String name, String content){
+        CommentEntity comment = new CommentEntity();
+        comment.setArticleId(articleId);
+        comment.setName(name);
+        comment.setContent(content);
+        dao.insert("basicData.insertComment", comment);
+    }
     //public int
 }

@@ -2,7 +2,7 @@ package wayne.wuzhushengxin.server.model.bizmodel;
 
 import wayne.wuzhushengxin.server.model.entity.ArticleEntity;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * Created by jiangwulin on 2017/3/27.
@@ -15,12 +15,14 @@ public class BizArticle {
     private int views;
     private int comments;
     private int categoryId;
-    private LocalDate gmtCreate;
-    private LocalDate gmtModify;
+    private LocalDateTime gmtCreate;
+    private LocalDateTime gmtModify;
 
     private String page;
     private String categoryName;
     private String url;
+    private String previous;
+    private String next;
 
     public BizArticle(ArticleEntity entity){
         this.id = entity.getId();
@@ -46,11 +48,11 @@ public class BizArticle {
         return comments;
     }
 
-    public LocalDate getGmtCreate() {
+    public LocalDateTime getGmtCreate() {
         return gmtCreate;
     }
 
-    public LocalDate getGmtModify() {
+    public LocalDateTime getGmtModify() {
         return gmtModify;
     }
 
@@ -94,5 +96,21 @@ public class BizArticle {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
+    }
+
+    public String getNext() {
+        return next;
+    }
+
+    public void setNext(String next) {
+        this.next = next;
+    }
+
+    public String getPrevious() {
+        return previous;
+    }
+
+    public void setPrevious(String previous) {
+        this.previous = previous;
     }
 }

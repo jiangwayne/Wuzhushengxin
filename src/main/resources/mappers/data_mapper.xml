@@ -6,10 +6,6 @@
         select now();
     </select>
 
-    <select id="selectArticleCommentCount" resultType="int" parameterType="int">
-        select count(0) from t_comment WHEN status=1 and article_id=#{id};
-    </select>
-
     <select id="loadCategory" resultType="wayne.wuzhushengxin.server.model.entity.CategoryEntity" parameterType="java.util.Date">
         select id, `name`,directory,prefix
         from t_category where status=1 and gmt_modify &gt;=#{current};
@@ -28,4 +24,16 @@
         select id
         from t_article where gmt_modify &gt;=#{current};
     </select>
+
+    <select id="selectArticleCommentCount" resultType="int" parameterType="int">
+        select count(0) from t_comment where status=1 and article_id=#{id};
+    </select>
+    <select id="selectArticleComment" resultType="wayne.wuzhushengxin.server.model.entity.CommentEntity" parameterType="int">
+        select id,`name`,content,article_id,gmt_create from t_comment where status=1 and article_id=#{id} order by gmt_create desc;
+    </select>
+    
+    <insert id="insertComment" parameterType="wayne.wuzhushengxin.server.model.entity.CommentEntity">
+        insert into t_comment(`name`,content,article_id,status,gmt_create,gmt_modify)
+        values(#{name,jdbcType=VARCHAR},#{content,jdbcType=VARCHAR},#{articleId,jdbcType=BIGINT},1,now(),now())
+    </insert>
 </mapper>

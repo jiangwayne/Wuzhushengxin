@@ -3,6 +3,7 @@ package wayne.wuzhushengxin.server.data;
 
 import org.apache.ibatis.datasource.DataSourceException;
 import org.apache.ibatis.session.SqlSession;
+import wayne.wuzhushengxin.server.model.entity.CommentEntity;
 
 import java.util.*;
 
@@ -20,6 +21,22 @@ public class Dao {
         try {
             Map<String, Date> paramMap = new HashMap<>();
             paramMap.put("current", currentTime);
+            list = sqlSession.selectList(statement, paramMap);
+        }
+        catch (DataSourceException ex) {
+            //TODO:log
+        }
+        finally {
+            //sqlSession.close();
+        }
+        return list;
+    }
+
+    public <E> List<E> getList(String statement, int id) {
+        List<E> list = new ArrayList<>();
+        try {
+            Map<String, Integer> paramMap = new HashMap<>();
+            paramMap.put("id", id);
             list = sqlSession.selectList(statement, paramMap);
         }
         catch (DataSourceException ex) {
@@ -58,5 +75,16 @@ public class Dao {
 
         }
         return count;
+    }
+
+    public void insert(String statement, Object object){
+        try{
+            sqlSession.insert(statement, object);
+        } catch (Exception ex){
+
+        }
+        finally {
+
+        }
     }
 }

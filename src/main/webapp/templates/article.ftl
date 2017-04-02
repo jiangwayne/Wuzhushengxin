@@ -13,11 +13,10 @@
     <link rel="stylesheet" href="/static/css/common.css" type="text/css">
     <link rel="stylesheet" href="/static/css/header.css" type="text/css">
     <script src="/static/js/jquery-3.1.1.min.js"></script>
+    <#--<script src="/static/js/comment.js"></script>-->
     <#if "${page}"=="math">
-        <script type="text/javascript" async
-                src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+        <script type="text/javascript" async src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
         </script>
-        <#--<script src="http://cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>-->
     </#if>
 </head>
 <body>
@@ -47,14 +46,18 @@
                         </footer>
                     </article>
                     <nav id="post-nav-2" class="clearfix">
-                        <div class="push-left">
-                            <a href="#">« Previous</a>
-                            <h6>Hike in mountain</h6>
-                        </div>
-                        <div class="push-right">
-                            <a href="#">Next »</a>
-                            <h6>Sunset in summer.</h6>
-                        </div>
+                        <#if article.previous =="">
+                        <#else>
+                            <div class="push-left">
+                                <a href="/article?id=${article.id - 1}">« 上一篇:${article.previous}</a>
+                            </div>
+                        </#if>
+                        <#if article.next =="">
+                        <#else>
+                            <div class="push-right">
+                                <a href="${article.id + 1}">下一篇:${article.next} »</a>
+                            </div>
+                        </#if>
                     </nav>
                     <#include "comments.ftl">
                 </div>
@@ -64,6 +67,6 @@
             </div>
         </div>
     </section>
-<#include "footer.ftl">
+    <#include "footer.ftl">
 </div>
 </body></html>
