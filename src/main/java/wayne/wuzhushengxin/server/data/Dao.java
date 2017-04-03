@@ -23,7 +23,7 @@ public class Dao {
             paramMap.put("current", currentTime);
             list = sqlSession.selectList(statement, paramMap);
         }
-        catch (DataSourceException ex) {
+        catch (Exception ex) {
             //TODO:log
         }
         finally {
@@ -39,7 +39,7 @@ public class Dao {
             paramMap.put("id", id);
             list = sqlSession.selectList(statement, paramMap);
         }
-        catch (DataSourceException ex) {
+        catch (Exception ex) {
             //TODO:log
         }
         finally {
@@ -53,7 +53,7 @@ public class Dao {
         try {
             currentDbDate = sqlSession.selectOne("basicData.selectCurrentDbTime");
         }
-        catch (DataSourceException ex) {
+        catch (Exception ex) {
             //TODO:log
         }
         finally {
@@ -85,6 +85,33 @@ public class Dao {
         }
         finally {
 
+        }
+    }
+
+    public void updateArticleComments(int articleId){
+        try {
+            sqlSession.update("basicData.updateArticleComments", articleId);
+        }
+        catch (Exception ex) {
+            //TODO:log
+        }
+        finally {
+            //sqlSession.close();
+        }
+    }
+
+    public void updateArticleViews(int articleId, int views){
+        try {
+            Map<String, Integer> paramMap = new HashMap<>();
+            paramMap.put("id", articleId);
+            paramMap.put("views", views);
+            sqlSession.update("basicData.updateArticleViews", paramMap);
+        }
+        catch (Exception ex) {
+            //TODO:log
+        }
+        finally {
+            //sqlSession.close();
         }
     }
 }

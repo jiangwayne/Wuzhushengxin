@@ -3,6 +3,7 @@ package wayne.wuzhushengxin.server.common;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.ContextLoader;
 import wayne.wuzhushengxin.server.data.DataServer;
+import wayne.wuzhushengxin.server.service.ArticleService;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -78,7 +79,8 @@ public class GlobalListener implements ServletContextListener, HttpSessionListen
     }
 
     public void contextDestroyed(ServletContextEvent servletContextEvent) {
-
+        ArticleService articleService = ContextLoader.getCurrentWebApplicationContext().getBean(ArticleService.class);
+        articleService.updateArticleViews();
     }
 
     public void sessionCreated(HttpSessionEvent httpSessionEvent) {

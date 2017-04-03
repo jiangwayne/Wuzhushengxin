@@ -2,6 +2,8 @@ package wayne.wuzhushengxin.server.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.jta.UserTransactionAdapter;
 import wayne.wuzhushengxin.server.data.Dao;
 import wayne.wuzhushengxin.server.data.DataServer;
 import wayne.wuzhushengxin.server.model.bizmodel.BizArticle;
@@ -11,7 +13,10 @@ import wayne.wuzhushengxin.server.model.entity.CommentEntity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import javax.transaction.*;
+import javax.naming.*;
 /**
  * Created by jiangwulin on 2017/3/29.
  */
@@ -47,8 +52,15 @@ public class ArticleService {
         article.setCategoryName(category.getName());
         article.setPage(category.getPrefix());
         article.setUrl(category.getDirectory() + category.getPrefix() + article.getId());
-        article.setViews(DataServer.getArticleViews(article.getId()));
+        article.setViews(getArticleViews(article.getId()));
 
+    }
+
+    private int getArticleViews(int articleId){
+        if(DataServer.getArticleViews().containsKey(articleId)){
+            return DataServer.getArticleViews().get(articleId);
+        }
+        return 0;
     }
 
     public BizArticle getArticle(int id){
@@ -82,12 +94,23 @@ public class ArticleService {
         return comments;
     }
 
-    public void addComment(int articleId, String name, String content){
+    @Transactional(rollbackFor = Exception.class)
+    public void addComment(int articleId, String name, String content) {
         CommentEntity comment = new CommentEntity();
         comment.setArticleId(articleId);
         comment.setName(name);
         comment.setContent(content);
         dao.insert("basicData.insertComment", comment);
+        dao.updateArticleComments(articleId);
+
     }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void updateArticleViews() {
+        for (Map.Entry<Integer,Integer> entry : DataServer.getArticleViews().entrySet()) {
+            dao.updateArticleViews(entry.getKey(), entry.getValue());
+        }
+    }
+
     //public int
 }

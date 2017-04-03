@@ -36,4 +36,12 @@
         insert into t_comment(`name`,content,article_id,status,gmt_create,gmt_modify)
         values(#{name,jdbcType=VARCHAR},#{content,jdbcType=VARCHAR},#{articleId,jdbcType=BIGINT},1,now(),now())
     </insert>
+
+    <update id="updateArticleComments" parameterType="int">
+        update t_article set comments = comments+1 where article_id=#{id}
+    </update>
+    <update id="updateArticleViews" parameterType="int">
+        update t_article set views = #{views} where article_id=#{id};
+    </update>
+
 </mapper>

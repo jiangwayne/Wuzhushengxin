@@ -178,12 +178,10 @@ public class DataServer {
         return getInstance().articleCollection;
     }
 
-    public static int getArticleViews(int articleId){
-        if(articleViews.containsKey(articleId)){
-            return articleViews.get(articleId);
-        }
-        return 0;
+    public static Map<Integer, Integer> getArticleViews(){
+        return articleViews;
     }
+
     //endregion
 
     //region Setters
