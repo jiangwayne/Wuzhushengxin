@@ -38,10 +38,10 @@
     </insert>
 
     <update id="updateArticleComments" parameterType="int">
-        update t_article set comments = comments+1 where article_id=#{id}
+        update t_article set comments = comments+1 where id=#{id}
     </update>
     <update id="updateArticleViews" parameterType="int">
-        update t_article set views = #{views} where article_id=#{id};
+        update t_article set views = #{views} where id=#{id};
     </update>
 
 </mapper>
