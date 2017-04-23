@@ -62,6 +62,7 @@ public class ArticleController extends BaseController {
         }
         String content = request.getParameter("content");
         if(content == null || content.isEmpty()){
+            response.sendRedirect(refreshStaticHtml(request, articleId));
             return;
         }
         if(articleService.getArticle(articleId) != null) {

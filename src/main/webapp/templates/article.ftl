@@ -31,7 +31,7 @@
                     <article class="post clearfix">
                         <header>
                             <h3>${article.title}</h3>
-                            <span>${article.gmtCreate} / 阅读(${article.views}) / 评论(${article.comments})</span>
+                            <span>${article.gmtCreate[0..9]} / 阅读(${article.views}) / 评论(${article.comments})</span>
                         </header>
                         <#include "${article.url}.ftl">
                         <script type="text/javascript" src="http://localhost:8080/article/view.htm?id=${article.id}"></script>

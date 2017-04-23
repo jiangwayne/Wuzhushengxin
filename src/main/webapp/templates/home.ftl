@@ -32,10 +32,10 @@
                             <article class="post">
                                 <header>
                                     <h3><a href="/article?id=${article.id}">${article.title}</a></h3>
-                                    <span>2017-03-12 / 阅读(${article.views}) / 评论(${article.comments})</span>
+                                    <span>${article.gmtCreate[0..9]} / 阅读(${article.views}) / 评论(${article.comments})</span>
                                 </header>
                                 <div class="editor-styles">
-                                    <p>实数的定义:任何实数都可用一个确定的无限小数来表示。...</p>
+                                    <p>${article.brief}</p>
                                 </div>
                                 <footer>
                                     <div>
