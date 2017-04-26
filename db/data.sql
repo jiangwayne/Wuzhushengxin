@@ -12,6 +12,8 @@ CREATE TABLE `t_category` (
 -- init data
 INSERT INTO t_category VALUES (1100, '数学分析', 'articles/mathematics/mathematicalAnalysis/', 'math', 1, now(), now());
 INSERT INTO t_category VALUES (6100, '小故事', 'articles/conte/', 'conte', 1, now(), now());
+INSERT INTO t_category VALUES (3100, 'java', 'articles/program/java/', 'program', 1, now(), now());
+INSERT INTO t_category VALUES (3200, 'hadoop', 'articles/program/hadoop/', 'program', 1, now(), now());
 
 DROP TABLE IF EXISTS `t_article`;
 CREATE TABLE `t_article` (
@@ -30,6 +32,7 @@ CREATE TABLE `t_article` (
 -- init data
 INSERT INTO t_article VALUES (11001,'实数及其性质','实数的定义:任何实数都可用一个确定的无限小数来表示。','数学分析，实数',0,0,1100,1,now(),now());
 INSERT INTO t_article VALUES (61001,'人间的实相(佛说譬喻经)','在一个寂寞的秋日黄昏，无尽广阔的荒野中，有一位旅人步履蹒跚地赶着路。突然','佛教，故事，实相',0,0,6100,1,now(),now());
+INSERT INTO t_article VALUES (32001,'hadoop安装','在centos7.2下安装hadoop2.8.0，伪分布式配置','centos,hadoop,安装',0,0,6100,1,now(),now());
 
 DROP TABLE IF EXISTS `t_comment`;
 CREATE TABLE `t_comment` (
@@ -42,4 +45,5 @@ CREATE TABLE `t_comment` (
   `gmt_modify` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
 
