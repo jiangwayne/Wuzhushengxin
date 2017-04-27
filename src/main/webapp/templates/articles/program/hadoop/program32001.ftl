@@ -11,7 +11,7 @@
         4.vim /root/.bash_profile<br/>
         export JAVA_HOME=/usr/java/jdk1.8.0_92<br/>
         export HADOOP_INSTALL=/home/hadoop-2.8.0<br/>
-        PATH=$PATH:$HOME/bin:$HADOOP_INSTALL/bin:$HADOOP_INSTALL/sbins<br/>
+        PATH=$PATH:$HOME/bin:$HADOOP_INSTALL/bin:$HADOOP_INSTALL/sbin<br/>
         export PATH<br/>
         5.source .bash_profile
     </blockquote>
