@@ -68,7 +68,7 @@
     </blockquote>
     <p>八.启动hadoop</p>
     <blockquote>
-        15.cd /home/hadoop-2.8.0/sbin
+        15.cd /home/hadoop-2.8.0/sbin<br/>
         16../start-dfs.sh
     </blockquote>
     <p>如果提示Error: JAVA_HOME is not set and could not be found.修改/home/hadoop-2.8.0/libexec/hadoop-config.sh文件,在
