@@ -66,4 +66,26 @@ public class HomeController extends BaseController {
         createStaticHtml("home.ftl", request, htmlPath, dataMap);
         response.sendRedirect(htmlPath);
     }
+
+    //编程主页
+    @RequestMapping(value = "program",method = RequestMethod.GET)
+    public void programHomePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String htmlPath = "/static/html/articles/program/home.html";
+        Map<String, Object> dataMap = new HashMap<>();
+        dataMap.put("page","program");
+        dataMap.put("articleList",articleService.getArticleList("program"));
+        createStaticHtml("home.ftl", request, htmlPath, dataMap);
+        response.sendRedirect(htmlPath);
+    }
+
+    //编程主页
+    @RequestMapping(value = "program/hadoop",method = RequestMethod.GET)
+    public void hadoopHomePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String htmlPath = "/static/html/articles/program/hadoop/home.html";
+        Map<String, Object> dataMap = new HashMap<>();
+        dataMap.put("page","program");
+        dataMap.put("articleList",articleService.getArticleList(3200));
+        createStaticHtml("home.ftl", request, htmlPath, dataMap);
+        response.sendRedirect(htmlPath);
+    }
 }
