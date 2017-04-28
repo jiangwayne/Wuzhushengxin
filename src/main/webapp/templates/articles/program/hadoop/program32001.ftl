@@ -13,7 +13,7 @@
         export HADOOP_INSTALL=/home/hadoop-2.8.0<br/>
         PATH=$PATH:$HOME/bin:$HADOOP_INSTALL/bin:$HADOOP_INSTALL/sbin<br/>
         export PATH<br/>
-        5.source .bash_profile
+        5.source /root/.bash_profile
     </blockquote>
     <p>三.查看是否安装成功</p>
     <blockquote>
