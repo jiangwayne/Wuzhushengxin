@@ -19,6 +19,7 @@ public class AboutController extends BaseController {
     public void aboutPage(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String htmlPath = "static/html/about.html";
         createStaticHtml("about.ftl", request, htmlPath, null);
+        saveLog(request,response, "about");
         response.sendRedirect(htmlPath);
     }
 }

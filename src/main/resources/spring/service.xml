@@ -22,4 +22,8 @@
 
     <task:annotation-driven/>
 
+    <bean id="fileWriteThread" class="wayne.wuzhushengxin.server.service.FileWriteThread">
+        <property name="fileFlushSize" value="1"></property>
+        <property name="logFilePathMain" value="/Users/jiangwulin"></property>
+    </bean>
 </beans>

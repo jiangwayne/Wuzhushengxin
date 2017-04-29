@@ -1,16 +1,12 @@
 package wayne.wuzhushengxin.server.data;
 
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.context.ContextLoader;
 import wayne.wuzhushengxin.server.model.bizmodel.BizArticle;
 import wayne.wuzhushengxin.server.model.bizmodel.BizCategory;
-import wayne.wuzhushengxin.server.model.bizmodel.BizComment;
 import wayne.wuzhushengxin.server.model.entity.ArticleEntity;
 import wayne.wuzhushengxin.server.model.entity.CategoryEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.io.FileInputStream;
-import java.net.URLDecoder;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -36,6 +32,7 @@ public class DataServer {
     //key:articleId
     //private Map<Integer, List<BizComment>> commentCollection = null;
 
+//    private Map<String, String> sysConfig = null;
 
     //key:articleId
     private static Map<Integer, Integer> articleViews;
@@ -44,6 +41,21 @@ public class DataServer {
         if(dao == null){
             dao = ContextLoader.getCurrentWebApplicationContext().getBean(Dao.class);
         }
+//        if(sysConfig == null){
+//            sysConfig = new HashMap<>();
+//            try {
+//                String ex = URLDecoder.decode(this.getClass().getClassLoader().getResource("system.properties").getPath(), "UTF-8");
+//                Properties pro = new Properties();
+//                FileInputStream in = new FileInputStream(ex);
+//                pro.load(in);
+//                in.close();
+//                sysConfig.put("logPath",pro.getProperty("logPath"));
+//            }
+//            catch (Exception ex){
+//
+//            }
+//
+//        }
         //region 初始化数据集合
         catetoryCollection = new HashMap<>();
         articleCollection = new HashMap<>();

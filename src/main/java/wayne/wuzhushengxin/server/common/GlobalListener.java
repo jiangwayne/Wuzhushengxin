@@ -1,9 +1,9 @@
 package wayne.wuzhushengxin.server.common;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.ContextLoader;
 import wayne.wuzhushengxin.server.data.DataServer;
 import wayne.wuzhushengxin.server.service.ArticleService;
+import wayne.wuzhushengxin.server.service.FileWriteThread;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -41,11 +41,11 @@ public class GlobalListener implements ServletContextListener, HttpSessionListen
 //        System.out.println("done. oldlogThread.start(); ");
 //
 //
-//        // dsp广告日志线程
-//        dspFileWriteThread = ContextLoader.getCurrentWebApplicationContext().getBean(DspFileWriteThread.class);
-//        Thread dspLogThread = new Thread(dspFileWriteThread);
-//        dspLogThread.start();
-//        System.out.println("done. dspLogThread.start(); ");
+        // dsp广告日志线程
+        FileWriteThread fileWriteThread = ContextLoader.getCurrentWebApplicationContext().getBean(FileWriteThread.class);
+        Thread dspLogThread = new Thread(fileWriteThread);
+        dspLogThread.start();
+        System.out.println("done. logThread.start(); ");
 //
 //        //js埋点日志
 //        jsPointThread = ContextLoader.getCurrentWebApplicationContext().getBean(JsPointThread.class);

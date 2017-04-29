@@ -4,11 +4,18 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfig;
+import wayne.wuzhushengxin.server.model.entity.LogEntity;
+import wayne.wuzhushengxin.server.service.LogQueue;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * Created by jiangwulin on 2017/3/11.
@@ -19,7 +26,6 @@ public class BaseController {
     protected FreeMarkerConfig freeMarkerConfig;
 
     private static final long interval = 1000*60*60;
-
     //生成静态化html
     protected void createStaticHtml(String templateName, HttpServletRequest request, String filePath, Map dataMap){
         try {
@@ -48,4 +54,75 @@ public class BaseController {
         }
     }
 
+    private static String generateUid(){
+        return UUID.randomUUID().toString().replace("-","");
+    }
+
+    private static String getUid(HttpServletRequest request){
+        if(request.getCookies() == null){
+            return "";
+        }
+        for (Cookie cookie : request.getCookies()){
+            if(cookie.getName().equals("uid")){
+                return cookie.getValue();
+            }
+        }
+        return "";
+    }
+
+    private static String getIp(HttpServletRequest request) {
+        String ipAddress = request.getHeader("X-Forwarded-For");
+        if(ipAddress == null || ipAddress.equals("") || ipAddress.toLowerCase().contains("unknown")) {
+            ipAddress = request.getRemoteAddr();
+            if(ipAddress.equals("127.0.0.1") || ipAddress.equals("0:0:0:0:0:0:0:1")) {
+                InetAddress ipAddressArray = null;
+
+                try {
+                    ipAddressArray = InetAddress.getLocalHost();
+                } catch (UnknownHostException ex) {
+                    ex.printStackTrace();
+                }
+
+                if(ipAddressArray != null) {
+                    ipAddress = ipAddressArray.getHostAddress();
+                }
+            }
+        }
+
+        if(ipAddress != null && ipAddress.indexOf(",") > -1) {
+            String[] arr = ipAddress.trim().split(",");
+
+            for(int i = 0; i < arr.length; ++i) {
+                if(arr[i] != null && !arr[i].equals("")) {
+                    ipAddress = arr[i];
+                    break;
+                }
+            }
+        }
+
+        if(ipAddress != null) {
+            ipAddress = ipAddress.trim();
+        } else {
+            ipAddress = "";
+        }
+
+        return ipAddress;
+    }
+
+    protected void saveLog(HttpServletRequest request, HttpServletResponse response, String pageId){
+        LogEntity logEntity = new LogEntity();
+        String uid = getUid(request);
+        if(uid.equals("")){
+            uid = generateUid();
+            response.addCookie(new Cookie("uid",uid));
+        }
+        logEntity.setUid(uid);
+        logEntity.setIp(getIp(request));
+        logEntity.setPageId(pageId);
+        try {
+            LogQueue.getQueue().put(logEntity);
+        } catch (Exception ex){
+
+        }
+    }
 }

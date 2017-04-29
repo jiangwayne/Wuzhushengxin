@@ -25,8 +25,15 @@ public class ArticleController extends BaseController {
     //文章
     @RequestMapping(value = "article",method = RequestMethod.GET)
     public void articlePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        int id = Integer.parseInt(request.getParameter("id"));
-        response.sendRedirect(refreshStaticHtml(request, id));
+        String id = request.getParameter("id");
+        int articleId = 0;
+        try{
+            articleId = Integer.parseInt(id);
+        }catch (Exception ex){
+            id="404";
+        }
+        saveLog(request,response, id);
+        response.sendRedirect(refreshStaticHtml(request, articleId));
     }
     //文章刷新静态页
     private String refreshStaticHtml(HttpServletRequest request, int articleId){

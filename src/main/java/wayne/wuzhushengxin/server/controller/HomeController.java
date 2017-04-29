@@ -31,6 +31,7 @@ public class HomeController extends BaseController {
         dataMap.put("page","home");
         dataMap.put("articleList",articleService.getArticleList(0));
         createStaticHtml("home.ftl", request, htmlPath, dataMap);
+        saveLog(request,response, "0");
         response.sendRedirect(htmlPath);
     }
 
@@ -42,6 +43,7 @@ public class HomeController extends BaseController {
         dataMap.put("page","math");
         dataMap.put("articleList",articleService.getArticleList("math"));
         createStaticHtml("home.ftl", request, htmlPath, dataMap);
+        saveLog(request,response, "math");
         response.sendRedirect(htmlPath);
     }
 
@@ -53,6 +55,7 @@ public class HomeController extends BaseController {
         dataMap.put("page","math");
         dataMap.put("articleList",articleService.getArticleList(1100));
         createStaticHtml("home.ftl", request, htmlPath, dataMap);
+        saveLog(request,response, "1100");
         response.sendRedirect(htmlPath);
     }
 
@@ -64,6 +67,7 @@ public class HomeController extends BaseController {
         dataMap.put("page","conte");
         dataMap.put("articleList",articleService.getArticleList(6100));
         createStaticHtml("home.ftl", request, htmlPath, dataMap);
+        saveLog(request,response, "6100");
         response.sendRedirect(htmlPath);
     }
 
@@ -75,10 +79,11 @@ public class HomeController extends BaseController {
         dataMap.put("page","program");
         dataMap.put("articleList",articleService.getArticleList("program"));
         createStaticHtml("home.ftl", request, htmlPath, dataMap);
+        saveLog(request,response, "program");
         response.sendRedirect(htmlPath);
     }
 
-    //编程主页
+    //hadoop主页
     @RequestMapping(value = "program/hadoop",method = RequestMethod.GET)
     public void hadoopHomePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String htmlPath = "/static/html/articles/program/hadoop/home.html";
@@ -86,6 +91,7 @@ public class HomeController extends BaseController {
         dataMap.put("page","program");
         dataMap.put("articleList",articleService.getArticleList(3200));
         createStaticHtml("home.ftl", request, htmlPath, dataMap);
+        saveLog(request,response, "3200");
         response.sendRedirect(htmlPath);
     }
 }
