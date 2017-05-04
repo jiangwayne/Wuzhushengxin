@@ -60,7 +60,7 @@
                         <#if article.next =="">
                         <#else>
                             <div class="push-right">
-                                <a href="${article.id + 1}">下一篇:${article.next} »</a>
+                                <a href="/article?id=${article.id + 1}">下一篇:${article.next} »</a>
                             </div>
                         </#if>
                     </nav>

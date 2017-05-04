@@ -35,7 +35,7 @@ public class Hdfs {
         用命令：java -cp hdfs.jar Hdfs 或者 上传一个MANIFEST.MF文件指定Main-Class 再用：jar -uvfm hdfs.jar MANIFEST.MF
         来更新hdfs.jar,就可以用java -jar hdfs.jar了。
     </p>
-    <p>在http://host:50070/explorer.html可以查看hdfs系统的目录 或者用命：hadoop fs -ls /</p>
+    <p>http://localhost:50070/explorer.html或命令：hadoop fs -ls /可以查看hdfs系统的目录</p>
 
     <p>二.创建文件</p>
 </div>
