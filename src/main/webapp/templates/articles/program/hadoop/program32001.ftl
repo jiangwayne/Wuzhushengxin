@@ -1,5 +1,5 @@
 <div class="article-body">
-    <p>以下是在centos7.2下安装hadoop2.8.0的步骤,安装hadoop之前请确保jdk和ssh已经安装，这里不做详细介绍，参考官方文档: <a href="http://hadoop.apache.org/docs/r2.8.0/index.html">http://hadoop.apache.org/docs/r2.8.0/index.html</a></p>
+    <p>以下是在centos7.2下安装hadoop2.8.0的步骤,安装hadoop之前请确保jdk和ssh已经安装，这里不做详细介绍，参考官方文档: <a target="_blank" href="http://hadoop.apache.org/docs/r2.8.0/index.html">http://hadoop.apache.org/docs/r2.8.0/index.html</a></p>
     <p>一.下载安装包hadoop-2.8.0.tar.gz到/home目录,并解压</p>
     <blockquote>
         1.cd /home <br/>
