@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.jta.UserTransactionAdapter;
+import org.springframework.util.comparator.ComparableComparator;
 import wayne.wuzhushengxin.server.data.Dao;
 import wayne.wuzhushengxin.server.data.DataServer;
 import wayne.wuzhushengxin.server.model.bizmodel.BizArticle;
@@ -11,9 +12,7 @@ import wayne.wuzhushengxin.server.model.bizmodel.BizCategory;
 import wayne.wuzhushengxin.server.model.bizmodel.BizComment;
 import wayne.wuzhushengxin.server.model.entity.CommentEntity;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.transaction.*;
 import javax.naming.*;
@@ -25,12 +24,20 @@ public class ArticleService {
     @Autowired
     private Dao dao;
 
+    private class ArticleComparator implements  Comparator<BizArticle>{
+        @Override
+        public int compare(BizArticle o1, BizArticle o2) {
+            return o2.getGmtCreate().compareTo(o1.getGmtCreate());
+        }
+    }
+
     public List<BizArticle> getArticleList(int categoryId){
         List<BizArticle> articles = new ArrayList<>();
         DataServer.articleCollection().values().stream().filter(article -> (article.getCategoryId() == categoryId || categoryId ==0)).forEach(article -> {
             articles.add(article);
             setArticle(article);
         });
+        Collections.sort(articles, new ArticleComparator());
         return articles;
     }
 
@@ -43,7 +50,7 @@ public class ArticleService {
                 setArticle(article);
             }
         }
-
+        Collections.sort(articles, new ArticleComparator());
         return articles;
     }
 
@@ -53,7 +60,6 @@ public class ArticleService {
         article.setPage(category.getPrefix());
         article.setUrl(category.getDirectory() + category.getPrefix() + article.getId());
         article.setViews(getArticleViews(article.getId()));
-
     }
 
     private int getArticleViews(int articleId){
