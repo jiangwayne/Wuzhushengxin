@@ -14,9 +14,9 @@ import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 public class Hdfs {
     public static void main(String[] args) throws Exception {
-        creatDir("hdfs://localhost:9000/user2");
+        createDir("hdfs://localhost:9000/user2");
     }
-    public static void creatDir(String strPath){
+    public static void createDir(String strPath){
         try{
             Configuration hadoopConfig = new Configuration();
             hadoopConfig.set("fs.hdfs.impl", org.apache.hadoop.hdfs.DistributedFileSystem.class.getName());
