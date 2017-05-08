@@ -1,7 +1,6 @@
 <div class="article-body">
-    <p>hdfs即Hadoop Distributed Filesystem,是Hadoop抽象文件系统的其中一个实现。这里简单学习一下如何用命令与java接口操作hdfs。<br/>
-        参考官方文档: <a target="_blank" href="http://hadoop.apache.org/docs/r2.8.0/hadoop-project-dist/hadoop-common/FileSystemShell.html">http://hadoop.apache.org/docs/r2.8.0/hadoop-project-dist/hadoop-common/FileSystemShell.html</a>
-    </p>
+    <p>参考官方文档: <a target="_blank" href="http://hadoop.apache.org/docs/r2.8.0/hadoop-project-dist/hadoop-common/FileSystemShell.html">http://hadoop.apache.org/docs/r2.8.0/hadoop-project-dist/hadoop-common/FileSystemShell.html</a></p>
+    <p>hdfs即Hadoop Distributed Filesystem,是Hadoop抽象文件系统的其中一个实现。这里简单学习一下如何用命令与java接口操作hdfs。</p>
     <p>准备所需jar包,pom.xml中添加依赖<br/>
         <code>
             &lt;dependency&gt;<br/>

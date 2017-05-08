@@ -1,5 +1,6 @@
 <div class="article-body">
-    <p>以下是在centos7.2下安装hadoop2.8.0的步骤,安装hadoop之前请确保jdk和ssh已经安装，这里不做详细介绍，参考官方文档: <a target="_blank" href="http://hadoop.apache.org/docs/r2.8.0/index.html">http://hadoop.apache.org/docs/r2.8.0/index.html</a></p>
+    <p>参考官方文档: <a target="_blank" href="http://hadoop.apache.org/docs/r2.8.0/index.html">http://hadoop.apache.org/docs/r2.8.0/index.html</a></p>
+    <p>以下是在centos7.2下安装hadoop2.8.0的步骤,安装hadoop之前请确保jdk和ssh已经安装。</p>
     <p>一.下载安装包hadoop-2.8.0.tar.gz到/home目录,并解压</p>
     <blockquote>
         1.cd /home <br/>
@@ -71,6 +72,11 @@
         15.cd /home/hadoop-2.8.0/sbin<br/>
         16../start-dfs.sh
     </blockquote>
-    <p>如果提示Error: JAVA_HOME is not set and could not be found.修改/home/hadoop-2.8.0/libexec/hadoop-config.sh文件,在
-        # Attempt to set JAVA_HOME if it is not set之前加上export JAVA_HOME=/usr/java/jdk1.8.0_92</p>
+    <p>启动成功用命令：jps -v<br/>
+        查看会发现有三个进程：NameNode,DataNode,SecondaryNameNode</p>
+    <p>如果提示Error: JAVA_HOME is not set and could not be found.<br/>
+        修改/home/hadoop-2.8.0/libexec/hadoop-config.sh文件,在<br/>
+        # Attempt to set JAVA_HOME if it is not set<br/>
+        之前加上<br/>
+        export JAVA_HOME=/usr/java/jdk1.8.0_92</p>
 </div>
