@@ -1,4 +1,4 @@
-<header>
+<header id="header" style="z-index: 100;background-color:#FAFAFA">
     <div class="container">
         <div class="row">
             <div class="col-md-12 clearfix">
@@ -58,6 +58,22 @@
         </div>
     </div>
 </header>
-<section id="section-featured" class="clearfix">
-    <div style="text-align: center;line-height: 50px; height:50px; background-color: #ffb8fc" class="container">本站建设中...</div>
-</section>
+<script type="text/javascript">
+    window.onscroll = function () {
+        var t = document.documentElement.scrollTop || document.body.scrollTop;
+        if(t>130){
+            var left = (document.body.clientWidth - $("#header").width()) / 2;
+            $("#header").css("position", "fixed");
+            $("#header").css("width", "100%");
+            $("#header").css("top", 0);
+            $("#header").css("left", left);
+        } else {
+            $("#header").css("position", "relative");
+            $("#header").css("top", 0);
+            $("#header").css("left", 0);
+        }
+    }
+</script>
+<#--<section id="section-featured" class="clearfix">-->
+    <#--<div style="text-align: center;line-height: 50px; height:50px; background-color: #ffb8fc" class="container">本站建设中...</div>-->
+<#--</section>-->
