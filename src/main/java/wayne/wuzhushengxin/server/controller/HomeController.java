@@ -94,4 +94,16 @@ public class HomeController extends BaseController {
         saveLog(request,response, "3200");
         response.sendRedirect(htmlPath);
     }
+
+    //java主页
+    @RequestMapping(value = "program/java",method = RequestMethod.GET)
+    public void javaHomePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String htmlPath = "/static/html/articles/program/java/home.html";
+        Map<String, Object> dataMap = new HashMap<>();
+        dataMap.put("page","program");
+        dataMap.put("articleList",articleService.getArticleList(3100));
+        createStaticHtml("home.ftl", request, htmlPath, dataMap);
+        saveLog(request,response, "3100");
+        response.sendRedirect(htmlPath);
+    }
 }

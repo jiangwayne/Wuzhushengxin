@@ -35,6 +35,8 @@ INSERT INTO t_article VALUES (61001,'人间的实相(佛说譬喻经)','在一�
 INSERT INTO t_article VALUES (32001,'hadoop安装','在centos7.2下安装hadoop2.8.0，伪分布式配置','centos,hadoop,安装',0,0,3200,1,now(),now());
 INSERT INTO t_article VALUES (32002,'hdfs的基本操作','用命令接口与java来操作hdfs','hdfs,操作',0,0,3200,1,now(),now());
 INSERT INTO t_article VALUES (32003,'mapreduce简单应用','用mapreduce来统计本站每个ip的访问次数','mapreduce',0,0,3200,1,now(),now());
+INSERT INTO t_article VALUES (31001,'变量与数据类型','介绍java的变量与数据类型','java数据类型',0,0,3100,1,now(),now());
+
 
 DROP TABLE IF EXISTS `t_comment`;
 CREATE TABLE `t_comment` (
