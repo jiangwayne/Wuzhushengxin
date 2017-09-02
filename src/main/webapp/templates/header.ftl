@@ -38,7 +38,7 @@
                             <li <#if  page=="program" >class="current-menu-item"</#if>>
                                 <a href="/program">编程</a>
                                     <ul class="sub-menu">
-                                        <li><a href="">java</a></li>
+                                        <li><a href="/program/java">java</a></li>
                                         <li><a href="/program/hadoop">hadoop</a></li>
                                     </ul>
                                 </li>

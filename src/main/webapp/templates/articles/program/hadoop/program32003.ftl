@@ -19,12 +19,12 @@
             &lt;/dependency&gt;
         </code>
     </p>
-    <p>一.将日志文件写入hdfs文件系统</p>
+    <h5>一.将日志文件写入hdfs文件系统</h5>
     <blockquote>
         1.hadoop fs -mkdir /user2/ip/in<br/>
         2.hadoop fs -put log.txt /user2/ip/in/log.txt<br/>
     </blockquote>
-    <p>二.开发mapreduce程序</p>
+    <h5>二.开发mapreduce程序</h5>
     <pre>
         <code class="java">
 import org.apache.hadoop.conf.Configuration;
@@ -82,7 +82,7 @@ public class IpCount {
 }
         </code>
     </pre>
-    <p>三.运行mapreduce程序,并查看reduce输出目录中的结果</p>
+    <h5>三.运行mapreduce程序,并查看reduce输出目录中的结果</h5>
     <blockquote>
         1.hadoop jar IpCount.jar IpCount<br/>
         2.hadoop fs -cat /user2/ip/out/part-r-00000

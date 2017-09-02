@@ -25,16 +25,22 @@ public class BaseController {
     @Autowired
     protected FreeMarkerConfig freeMarkerConfig;
 
-    private static final long interval = 1000*60*60;
     //生成静态化html
     protected void createStaticHtml(String templateName, HttpServletRequest request, String filePath, Map dataMap){
+        createStaticHtml(templateName,request,filePath,dataMap,true);
+    }
+
+    //生成静态化html
+    //reCreate : 是否需要马上刷新
+    protected void createStaticHtml(String templateName, HttpServletRequest request, String filePath, Map dataMap,boolean reCreate){
         try {
             String path = request.getSession().getServletContext().getRealPath("/");
             File file = new File(path + filePath);
             System.out.println(path);
-//            if(file.exists() && (System.currentTimeMillis() - file.lastModified()) < interval){
-//                return;
-//            }
+            //文件存在且不需要马上刷新
+            if(file.exists() && !reCreate){
+                return;
+            }
             if(!file.getParentFile().exists()){
                 file.getParentFile().mkdirs();
             }

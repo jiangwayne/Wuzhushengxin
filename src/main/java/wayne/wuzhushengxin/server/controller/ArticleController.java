@@ -33,10 +33,12 @@ public class ArticleController extends BaseController {
             id="404";
         }
         saveLog(request,response, id);
-        response.sendRedirect(refreshStaticHtml(request, articleId));
+        response.sendRedirect(refreshStaticHtml(request, articleId, true));
     }
+
     //文章刷新静态页
-    private String refreshStaticHtml(HttpServletRequest request, int articleId){
+    //reCreate : 是否需要马上刷新
+    private String refreshStaticHtml(HttpServletRequest request, int articleId, boolean reCreate){
         BizArticle article = articleService.getArticle(articleId);
         if(article == null){
             return "/static/html/404.html";
@@ -46,7 +48,11 @@ public class ArticleController extends BaseController {
         dataMap.put("article", article);
         dataMap.put("commentList",articleService.getCommentList(articleId));
         String htmlPath = "/static/html/" + article.getUrl() + ".html";
-        createStaticHtml("article.ftl", request, htmlPath, dataMap);
+        if(reCreate){
+            createStaticHtml("article.ftl", request, htmlPath, dataMap, true);
+        } else{
+            createStaticHtml("article.ftl", request, htmlPath, dataMap);
+        }
         return htmlPath;
     }
 
@@ -69,12 +75,12 @@ public class ArticleController extends BaseController {
         }
         String content = request.getParameter("content");
         if(content == null || content.isEmpty()){
-            response.sendRedirect(refreshStaticHtml(request, articleId));
+            response.sendRedirect(refreshStaticHtml(request, articleId, true));
             return;
         }
         if(articleService.getArticle(articleId) != null) {
             articleService.addComment(articleId, name, content);
         }
-        response.sendRedirect(refreshStaticHtml(request, articleId));
+        response.sendRedirect(refreshStaticHtml(request, articleId,true));
     }
 }
