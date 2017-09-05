@@ -119,4 +119,17 @@ public class HomeController extends BaseController {
         response.sendRedirect(htmlPath);
 
     }
+
+    //java主页
+    @RequestMapping(value = "algorithm/dataStructure",method = RequestMethod.GET)
+    public void dataStructureHomePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String htmlPath = "/static/html/articles/algorithm/dataStructure/home.html";
+        Map<String, Object> dataMap = new HashMap<>();
+        dataMap.put("page","algorithm");
+        dataMap.put("articleList",articleService.getArticleList(2100));
+        createStaticHtml("home.ftl", request, htmlPath, dataMap);
+        saveLog(request,response, "2100");
+        response.sendRedirect(htmlPath);
+
+    }
 }

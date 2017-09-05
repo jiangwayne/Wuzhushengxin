@@ -31,6 +31,7 @@
                             <li <#if  page=="algorithm" >class="current-menu-item"</#if>>
                                 <a href="">算法</a>
                                 <ul class="sub-menu">
+                                    <li><a href="/algorithm/dataStructure">数据结构</a></li>
                                     <li><a href="">算法导论</a></li>
                                     <li><a href="">趣味算法题</a></li>
                                 </ul>
