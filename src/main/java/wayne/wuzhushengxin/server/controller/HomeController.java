@@ -1,29 +1,16 @@
 package wayne.wuzhushengxin.server.controller;
 
-import javafx.concurrent.ScheduledService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.TaskScheduler;
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.scheduling.config.ScheduledTask;
-import org.springframework.scheduling.config.ScheduledTaskRegistrar;
-import org.springframework.scheduling.support.DelegatingErrorHandlingRunnable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import wayne.wuzhushengxin.server.service.ArticleService;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.ScheduledFuture;
 
 /**
  * Created by jiangwulin on 2017/3/11.
@@ -117,10 +104,9 @@ public class HomeController extends BaseController {
         createStaticHtml("home.ftl", request, htmlPath, dataMap);
         saveLog(request,response, "3100");
         response.sendRedirect(htmlPath);
-
     }
 
-    //java主页
+    //数据结构主页
     @RequestMapping(value = "algorithm/dataStructure",method = RequestMethod.GET)
     public void dataStructureHomePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String htmlPath = "/static/html/articles/algorithm/dataStructure/home.html";
@@ -130,6 +116,5 @@ public class HomeController extends BaseController {
         createStaticHtml("home.ftl", request, htmlPath, dataMap);
         saveLog(request,response, "2100");
         response.sendRedirect(htmlPath);
-
     }
 }

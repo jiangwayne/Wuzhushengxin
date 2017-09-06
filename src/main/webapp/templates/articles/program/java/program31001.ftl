@@ -82,18 +82,32 @@
         </tbody>
     </table>
     <p>
-        所有浮点数值计算都遵循IEEE&nbsp;754规范<br/>
+        所有浮点数值计算都遵循<a href="https://en.wikipedia.org/wiki/IEEE_754-1985">IEEE&nbsp;754规范</a><br/>
         一个float4字节32位,分为三部分：符号位(1bit)，指数位(8bit)，尾数位(23bit)<br/>
         一个double8字节(共64位),分为三部分：符号位(1bit)，指数位(11bit)，尾数位(52bit)<br/>
         因为小数有无穷多个,浮点数都是有精度的，并不能表示绝对值任意小的值<br/>
     </p>
     <pre>
         <code class="java">
-float a = 0.00000000000003741923741263f;
-System.out.println(a); //3.741924E-14
-a=0.00500000000003741923741263f;
-System.out.println(a); //0.005a=a-0.005f;
-System.out.println(a); //0.0
+int a = Integer.valueOf("00000000000000000000000000000001", 2);
+System.out.println(a);
+System.out.println(Float.intBitsToFloat(a));
+
+Float f =Float.MAX_VALUE;
+System.out.println(f);
+int i  = Float.floatToRawIntBits(f);
+System.out.println(i);
+System.out.println(Integer.toBinaryString(i));
+//0 11111111 00000000000000000000000 POSITIVE_INFINITY
+//1 11111111 00000000000000000000000 Float.NEGATIVE_INFINITY
+//0 11111110 11111111111111111111111 Float.MAX_VALUE
+//0 00000000 00000000000000000000001 Float.MIN_VALUE
+//0 01111111 00000000000000000000000 1.0f
+//1 01111111 00000000000000000000000 -1.0f
+//0 01111111 00011001100110011001101  1.1f
+//1 01111111 00011001100110011001101  -1.1f
+//0 01111110 00000000000000000000000  0.5f
+//1 01111110 00000000000000000000000 -0.5f
         </code>
     </pre>
     <h5>三.字符类型</h5>
