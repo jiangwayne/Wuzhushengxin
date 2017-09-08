@@ -4,7 +4,7 @@
     <p>它是一种限定在一端进行插入或删除操作的线性表。这一端被称为栈顶(top)。<br/>
         插入数据被称为入栈:push。<br/>
         删除数据被称为出栈:pop。<br/>
-        后入先出:LIFO。
+        后进先出:LIFO。
     </p>
     <h5>二.基本操作</h5>
     <p>
@@ -40,7 +40,7 @@ public class MyArrayStack {
 
     public void push(Node node){
         if(node == null || top == array.length -1){
-            return;   //堆栈已满
+            return;   //node为空或堆栈已满
         }
         array[++top] = node;
     }
@@ -75,7 +75,7 @@ public class MyChainedStack {
     private Node stack;
 
     public MyChainedStack(){
-        stack = new Node();    //用链表的第1个（逻辑位序),也就是stack.next做为top,想想为什么?
+        stack = new Node();    //用链表的第1个（逻辑位序),也就是stack.next做为top,想想为什么? 如果用第0个,pop就不好处理了
     }
 
     public boolean isEmpty(){

@@ -35,6 +35,8 @@ INSERT INTO t_article VALUES (11001,'实数及其性质','实数的定义:任何
 
 INSERT INTO t_article VALUES (21001,'线性结构(线性表)','线性表是最基本、最简单、也是最常用的一种数据结构','数据结构，线性表，链表',0,0,2100,1,now(),now());
 INSERT INTO t_article VALUES (21002,'线性结构(堆栈)','堆栈是一种后进先出(LIFO,last in first out)的线性结构','数据结构，堆栈',0,0,2100,1,now(),now());
+INSERT INTO t_article VALUES (21003,'线性结构(队列)','队列是一种先进先出(FIFO,first in first out)的线性结构','数据结构，队列',0,0,2100,1,now(),now());
+
 
 INSERT INTO t_article VALUES(31001,'java基本数据类型','java一共有8种基本类型，其中4种整型，2种浮点类型，1种字符类型，1种boolean类型','java,数据类型',0,0,3100,1,now(),now());
 
