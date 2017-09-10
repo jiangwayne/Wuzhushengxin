@@ -10,7 +10,7 @@
     <p>
         堆栈的基本操作包括:<br/>
         1.Queue createQueue():创建一个空的队列<br/>
-        2.boolean isEmpty():判读队列是否为空<br/>
+        2.boolean isEmpty():判断队列是否为空<br/>
         3.void put(Node node):把一个元素加入队列<br/>
         4.Node take():从队列中取出一个元素<br/>
     </p>
@@ -41,7 +41,8 @@ public class MyArrayQueue {
     }
 
     private boolean isFull(){
-        return front == (rear + 1) % array.length;      //为了区分队列是空还是满, 让数组留空一个元素,这里当存够15个就认为满了
+        return front == (rear + 1) % array.length;      //为了区分队列是空还是满, 让数组留空一个元素,这里当存够array.length-1个就认为满了
+                                                        //这里也可以增加一个size字段来判断队列是否已满,让数组得已存满
 
     }
 
@@ -50,7 +51,7 @@ public class MyArrayQueue {
             return;   //node为空或队列已满
         }
         rear = (rear + 1) % array.length;
-        array[rear] = node;
+        array[rear] = node;z
     }
 
     public Node take(){

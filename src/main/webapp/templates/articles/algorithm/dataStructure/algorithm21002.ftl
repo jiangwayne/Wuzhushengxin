@@ -10,7 +10,7 @@
     <p>
         堆栈的基本操作包括:<br/>
         1.Stack createStack():创建一个空的堆栈<br/>
-        2.boolean isEmpty():判读堆栈是否为空<br/>
+        2.boolean isEmpty():判断堆栈是否为空<br/>
         3.void push(Node node):把一个元素推入堆栈<br/>
         4.Node pop():从堆栈中弹出一个元素<br/>
     </p>
