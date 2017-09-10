@@ -13,6 +13,7 @@
         2.boolean isEmpty():判断堆栈是否为空<br/>
         3.void push(Node node):把一个元素推入堆栈<br/>
         4.Node pop():从堆栈中弹出一个元素<br/>
+        5.Node top():返回栈顶的元素<br/>
     </p>
     <h5>三.数组实现</h5>
     <ul id="myTab" class="nav nav-tabs">
@@ -51,6 +52,13 @@ public class MyArrayStack {
         }
 
         return array[top--];
+    }
+
+    public Node top(){
+        if(top == -1){
+            return null;    //堆栈已空
+        }
+        return array[top];
     }
 }
                 </code>
@@ -98,6 +106,14 @@ public class MyChainedStack {
         Node n = stack.next;
         stack.next = stack.next.next;
         n.next = null;
+        return n;
+    }
+
+    public Node pop(){
+        if(stack.next == null){
+            return null;    //堆栈已空
+        }
+        Node n = stack.next;
         return n;
     }
 }

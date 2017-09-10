@@ -76,28 +76,26 @@ public class MyTree {
     }
 
     //先序遍历(递归实现)
-    public void preorderTraversal(MyTree root){
-        while(root != null){
-             System.out.println(root.data);
-             if(root.left != null){
-                preorderTraversal(root.left);
-             }
-             if(root.right != null){
-                preorderTraversal(root.right);
-             }
+    public void preorderTraversal(TreeNode root){
+        System.out.print(root.data);
+        if(root.left != null){
+            preorderTraversal(root.left);
+        }
+        if(root.right != null){
+            preorderTraversal(root.right);
         }
     }
 
      //先序遍历(堆栈实现1)
     public void preorderTraversal(){
-        MyChainedStack stack = new MyChainedStack();
+        MyArrayStack stack = new MyArrayStack(); //这里我们用到前面数组实现的堆栈,需要将Node换成TreeNode
         stack.push(root);
         while(true){
             TreeNode r = stack.pop();
             if(r == null){
                 break;
             }
-            System.out.println(r.data);
+            System.out.print(r.data);
             if(r.right != null){     //这里要先把右子树压入堆栈
                 stack.push(r.right);
             }
@@ -107,7 +105,7 @@ public class MyTree {
         }
     }
     //先序遍历(非递归实现2)
-    public void postorderTraversal2(){
+    public void preorderTraversal2(){
         MyChainedStack stack = new MyChainedStack();
         TreeNode r = root;
         while(true){
@@ -118,7 +116,7 @@ public class MyTree {
                 if(r == null){
                     break;
                 }
-                System.out.println(r.data);
+                System.out.print(r.data);
                 stack.push(r);
                 r = r.left;
             }
@@ -130,21 +128,19 @@ public class MyTree {
     }
 
     //中序遍历(递归实现)
-    public void inorderTraversal(MyTree root){
-        while(root != null){
-             if(root.left != null){
-                preorderTraversal(root.left);
-             }
-             System.out.println(root.data);
-             if(root.right != null){
-                preorderTraversal(root.right);
-             }
+    public void inorderTraversal(TreeNode root){
+        if(root.left != null){
+            inorderTraversal(root.left);
+        }
+        System.out.print(root.data);
+        if(root.right != null){
+            norderTraversal(root.right);
         }
     }
 
     //中序遍历(非递归实现)
     public void inorderTraversal(){
-        MyChainedStack stack = new MyChainedStack();
+        MyArrayStack stack = new MyArrayStack();
         TreeNode r = root;
         while(true){
             if(r == null && stack.isEmpty()){
@@ -159,51 +155,75 @@ public class MyTree {
             }
             if(!stack.isEmpty()){    //弹出堆栈，并转向右子树，若右子树为空，下次循环中再次弹出堆栈的就是父结点，若右子树非空，下次循环中会先将右子树的所有左子树入栈....
                 r = stack.pop();
-                System.out.println(r.data);
+                System.out.print(r.data);
                 r = r.right;
             }
         }
     }
 
     //后序遍历(递归实现)
-    public void postorderTraversal(MyTree root){
-        while(root != null){
-             if(root.left != null){
-                preorderTraversal(root.left);
-             }
-             if(root.right != null){
-                preorderTraversal(root.right);
-             }
-             System.out.println(root.data);
+    public void postorderTraversal(TreeNode root){
+        if(root.left != null){
+            postorderTraversal(root.left);
+        }
+        if(root.right != null){
+            postorderTraversal(root.right);
+        }
+        System.out.print(root.data);
+    }
+
+    //后序遍历(非递归实现) 双栈法
+    public void postorderTraversal(){
+        MyArrayStack s1 = new MyArrayStack();
+        MyArrayStack s2 = new MyArrayStack();
+        s1.push(root);
+        TreeNode curr = null;
+        while(true){
+            if(s1.isEmpty()){
+                break;
+            }
+            curr = s1.pop();
+            s2.push(curr);
+            if(curr.left != null) {
+                s1.push(curr.left);
+            }
+            if(curr.right != null){
+                s1.push(curr.right);
+            }
+        }
+        while (true){
+            if(s2.isEmpty()){
+                break;
+            }
+            System.out.print(s2.pop().data);
         }
     }
 
-    //后序遍历(非递归实现)
-    public void postorderTraversal(){
-        MyChainedStack stack = new MyChainedStack();
-        TreeNode r = root;
+    //后序遍历(非递归实现2)
+    public void postorderTraversal2(){
+        MyArrayStack stack = new MyArrayStack();
+        TreeNode pre = null, curr = null;
+        stack.push(root);
         while(true){
-            if(r == null && stack.isEmpty()){
+            if(stack.isEmpty()){
                 break;
             }
-            while(true){       //所有左子树入栈
-                if(r == null){
-                    break;
+            curr = stack.top();
+            if(pre == null || curr.equals(pre.left) || curr.equals(pre.right)){
+                if(curr.left != null){
+                    stack.push(curr.left);
+                } else if(curr.right != null){
+                    stack.push(curr.right);
                 }
-                if(r.left == null && r.right == null){
-                    System.out.println(r.data);
+            }else if(curr.left == pre){
+                if(curr.right != null){
+                    stack.push(curr.right);
                 }
-                stack.push(r);
-                r = r.left;
+            } else {
+                System.out.print(curr.data);
+                curr = stack.pop();
             }
-            if(!stack.isEmpty()){    //弹出堆栈，并转向右子树，若右子树为空，下次循环中再次弹出堆栈的就是父结点，若右子树非空，下次循环中会先将右子树的所有左子树入栈....
-                r = stack.pop();
-                    if(r.right == null){
-
-                    System.out.println(r.data);
-                }
-                r = r.right;
-            }
+            pre = curr;
         }
     }
 }
