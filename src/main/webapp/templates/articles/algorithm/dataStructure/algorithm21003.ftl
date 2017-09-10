@@ -115,7 +115,9 @@ public class MyChainedQueue {
         return n;
     }
 }
-
+class Node {
+    public Node next;
+}
                 </code>
             </pre>
         </div>
