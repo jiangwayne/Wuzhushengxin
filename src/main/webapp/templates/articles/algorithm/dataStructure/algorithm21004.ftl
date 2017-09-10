@@ -88,7 +88,7 @@ public class MyTree {
         }
     }
 
-     //先序遍历(堆栈实现)
+     //先序遍历(堆栈实现1)
     public void preorderTraversal(){
         MyChainedStack stack = new MyChainedStack();
         stack.push(root);
@@ -103,6 +103,28 @@ public class MyTree {
             }
             if(r.left != null){
                 stack.push(r.left);
+            }
+        }
+    }
+    //先序遍历(非递归实现2)
+    public void postorderTraversal2(){
+        MyChainedStack stack = new MyChainedStack();
+        TreeNode r = root;
+        while(true){
+            if(r == null && stack.isEmpty()){
+                break;
+            }
+            while(true){       //所有左子树入栈
+                if(r == null){
+                    break;
+                }
+                System.out.println(r.data);
+                stack.push(r);
+                r = r.left;
+            }
+            if(!stack.isEmpty()){    //弹出堆栈，并转向右子树，若右子树为空，下次循环中再次弹出堆栈的就是父结点，若右子树非空，下次循环中会先将右子树的所有左子树入栈....
+                r = stack.pop();
+                r = r.right;
             }
         }
     }
@@ -158,7 +180,31 @@ public class MyTree {
 
     //后序遍历(非递归实现)
     public void postorderTraversal(){
+        MyChainedStack stack = new MyChainedStack();
+        TreeNode r = root;
+        while(true){
+            if(r == null && stack.isEmpty()){
+                break;
+            }
+            while(true){       //所有左子树入栈
+                if(r == null){
+                    break;
+                }
+                if(r.left == null && r.right == null){
+                    System.out.println(r.data);
+                }
+                stack.push(r);
+                r = r.left;
+            }
+            if(!stack.isEmpty()){    //弹出堆栈，并转向右子树，若右子树为空，下次循环中再次弹出堆栈的就是父结点，若右子树非空，下次循环中会先将右子树的所有左子树入栈....
+                r = stack.pop();
+                    if(r.right == null){
 
+                    System.out.println(r.data);
+                }
+                r = r.right;
+            }
+        }
     }
 }
 
